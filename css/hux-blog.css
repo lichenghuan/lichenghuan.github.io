@@ -980,6 +980,8 @@ samp {
   background-size: cover;
   -o-background-size: cover;
   margin-bottom: 0px;
+  -moz-box-shadow: 0 6px 10px #888888;  
+  box-shadow: 0 6px 10px #888888;
   /* 0 on mobile, modify by Hux */
 }
 .intro-header.style-text {
