@@ -229,6 +229,16 @@
         if ("{{ page.catalog }}") generateCatalog(".catalog-body");
     }
 
+     // handle select change
+     function onLanChange(index){
+        if(index == 0){
+            _hash = "#zh"
+        }else{
+            _hash = "#en"
+        }
+        _render(_hash)
+    }
+
     // init
     _render();
 </script>
