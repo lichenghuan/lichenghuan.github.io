@@ -90,14 +90,13 @@ featured-condition-size: 0              # A tag will be featured if the size of 
 
 
 # Progressive Web Apps
-chrome-tab-theme-color: "#252526"
+chrome-tab-theme-color: "#2566ca"
 service-worker: true
 
 
 
 # MathJax rendering for layout:page (e.g. post preview)
 page-mathjax: false
-
 
 
 # Friends
