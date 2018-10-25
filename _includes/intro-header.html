@@ -20,6 +20,11 @@
     }
     {% endif %}
 </style>
+
+<!-- http://ibruce.info/2015/04/04/busuanzi/ -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
 {% if page.header-style == 'text' %}
 <header class="intro-header style-text" >
 {% else %}
@@ -59,8 +64,6 @@
     </div>
 </header>
 {% endif %}
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 {% if include.type == 'keynote' %}
 <style type="text/css">
@@ -104,14 +107,14 @@
 {% if include.type == 'page' %}
 <header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
   <div class="container">
-    <div class="row">
+    <div class="row" style="user-select:none;">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         {% if include.short %}
         <div class="site-heading" id="tag-heading">
         {% else %}
         <div class="site-heading">
         {% endif %}
-          <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+          <h1 style="user-select:none;">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
           <span class="subheading">{{ page.description }}</span>
         </div>
       </div>

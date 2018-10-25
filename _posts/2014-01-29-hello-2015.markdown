@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "windows安装jekyll"
-subtitle:   " \"需要安装ruby\""
+subtitle:   " \"需要ruby环境\""
 date:       2018-10-23 14:00:00
 author:     "huan"
 header-img: "img/post-bg-2015.jpg"
