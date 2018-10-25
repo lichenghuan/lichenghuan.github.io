@@ -76,34 +76,76 @@
             background-color: #555;
         }
 
-        .huan_div {
+        #h_go_top {
             width: 50px;
             height: 50px;
-            background: blue;
+            background: rgba(0, 0, 0, 0.6);
             position: fixed;
             bottom: 50px;
-            right: 50px;
+            right: 20px;
+            border-radius: 50%;
+            z-index: 999999;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            font-size: 12px;
+            display: none;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        @media all and (max-width: 850px) {
+            #h_go_top {
+                width: 36px;
+                height: 36px;
+                line-height: 36px;
+            }
         }
     </style>
 </head>
 
 
 <body>
-    <div class='huan_div'></div>
+    <div id='h_go_top'></div>
 </body>
-<!-- <script src="../js/jquery.min.js"></script> -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="../js/animatescroll.js"></script>
+<!-- jQuery -->
+<script src="{{ '/js/jquery.min.js' | prepend: site.baseurl }}"></script>
+
 <script>
 
+    $(function () {
+        // $(document.body).append(goTopDiv);
+        var docHeight = $(document).height();
+        var windowHeight = $(window).height();
 
-    // console.log($.fn.animatescroll);
-    // console.log(document.querySelector('.huan_div'));
+        // jQuery返回顶部插件
+        jQuery.fn.goToTop = function () {
+            $('#h_go_top').hide();
+            if ($(window).scrollTop() < 0) {
+                $('#h_go_top').hide();
+            }
+            // 窗口滚动时，判断当前窗口滚动距离
+            $(window).scroll(function () {
+                var scrollTo = $(window).scrollTop();
+                var scrollPercent = (scrollTo / (docHeight - windowHeight)) * 100;
+                scrollPercent = scrollPercent.toFixed(0);
+                $('#h_go_top').text(scrollPercent + '%');
 
+                $(this).scrollTop() > 1 ? $('#h_go_top').fadeIn() : $('#h_go_top').fadeOut();
+            });
 
-    document.querySelector('.huan_div').addEventListener('click', function () {
-        $('.huan_div').animatescroll({ scrollSpeed: 100, easing: 'easeInOutBack' });
-        $('.huan_div').animatescroll();
+            // 给这个按钮绑定一个click事件
+            this.bind('click', function () {
+                $('html ,body').stop().animate({ scrollTop: 0 }, 500);
+                return false;
+            });
+        };
+
+        //调用插件
+        $(function () {
+            $('#h_go_top').goToTop();
+        });
     })
+
 
 </script>
