@@ -35,21 +35,30 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
+                    <h1 style="margin-top:0;">{{ page.title }}</h1>
+                    {% comment %} always create a h2 for keeping the margin {% endcomment %}
+                    <h2 class="subheading" style="margin-bottom:24px;">{{ page.subtitle }}</h2>
+                    <!-- <p class="meta" style="margin:0 0 16px 0">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</p> -->
+                    <p class="meta" style="margin:0 0 24px 0">
+                          <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ page.author }} &nbsp;&nbsp;
+                          <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ page.date | date: "%Y-%m-%d" }} &nbsp;&nbsp;
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;{{ content | strip_html | strip_newlines | split: "" | size }} words &nbsp;&nbsp;
+                          <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>&nbsp;&nbsp;
+                    </p>
                     <div class="tags">
                         {% for tag in page.tags %}
                         <a class="tag" href="{{ site.baseurl }}/archive/?tag={{ tag | url_encode }}" title="{{ tag }}">{{ tag }}</a>
                         {% endfor %}
                     </div>
-                    <h1>{{ page.title }}</h1>
-                    {% comment %} always create a h2 for keeping the margin {% endcomment %}
-                    <h2 class="subheading">{{ page.subtitle }}</h2>
-                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                
                 </div>
             </div>
         </div>
     </div>
 </header>
 {% endif %}
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 {% if include.type == 'keynote' %}
 <style type="text/css">
