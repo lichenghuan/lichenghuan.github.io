@@ -87,15 +87,24 @@
             z-index: 999999;
             color: #fff;
             text-align: center;
-            line-height: 50px;
-            font-size: 12px;
+            /* line-height: 50px; */
+            font-size: 56px;
             display: none;
             user-select: none;
             cursor: pointer;
             font-weight: 600;
+            vertical-align: middle;
         }
 
-        #h_go_top:hover{
+        #h_go_top>i {
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #h_go_top:hover {
             background: #4b8af4;
         }
 
@@ -103,7 +112,6 @@
             #h_go_top {
                 width: 36px;
                 height: 36px;
-                line-height: 36px;
             }
         }
     </style>
@@ -111,7 +119,7 @@
 
 
 <body>
-    <div id='h_go_top'></div>
+    <div id='h_go_top'><i class='fa fa-arrow-circle-o-up'></i></div>
 </body>
 <!-- jQuery -->
 <script src="{{ '/js/jquery.min.js' | prepend: site.baseurl }}"></script>
@@ -119,10 +127,6 @@
 <script>
 
     $(function () {
-        // $(document.body).append(goTopDiv);
-        var docHeight = $(document).height();
-        var windowHeight = $(window).height();
-
         // jQuery返回顶部插件
         jQuery.fn.goToTop = function () {
             $('#h_go_top').hide();
@@ -131,11 +135,6 @@
             }
             // 窗口滚动时，判断当前窗口滚动距离
             $(window).scroll(function () {
-                var scrollTo = $(window).scrollTop();
-                var scrollPercent = (scrollTo / (docHeight - windowHeight)) * 100;
-                scrollPercent = scrollPercent.toFixed(0);
-                $('#h_go_top').text(scrollPercent + '%');
-
                 $(this).scrollTop() > 1 ? $('#h_go_top').fadeIn() : $('#h_go_top').fadeOut();
             });
 
