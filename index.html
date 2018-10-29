@@ -14,7 +14,7 @@ description: "Something for nothing"
             {{ post.subtitle }}
         </h3>
         {% endif %}
-        <div class="post-content-preview">
+        <div class="post-content-preview" style="font-style:normal;">
             {% if post.lang == 'en' %}
                 {{ post.content | strip_html | truncate:300 }}
             {% else %}
