@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "windows  开发者神兵利器"
-subtitle:   " \"工欲善其事必先利其器\""
+title:      "windows 神兵利器"
+subtitle:   " \"工欲善其事，必先利其器\""
 date:       2018-10-29 15:00:00
 author:     "huan"
 header-img: "img/post-bg-js-module.jpg"
