@@ -10,10 +10,7 @@ tags:
     - 神兵利器
 ---
 
-
 `多图警告`
-
-<i class="fal fa-angry"></i>
 
 ### [Snipaste](https://zh.snipaste.com/index.html){:target="_blank"}
 
@@ -50,8 +47,8 @@ tags:
 ### [Clover](http://cn.ejie.me/){:target="_blank"}
 
 > 描述：Clover 是 Windows 资源管理器的一个扩展，为其增加类似谷歌 Chrome 浏览器的多标签页功能。
->
->  tips：打开多个资源管理器窗口，不知道哪个是哪个，Clover整理成一个窗口，好用！有新闻，可关闭。
+
+打开多个资源管理器窗口，不知道哪个是哪个，Clover整理成一个窗口，好用！有新闻，可关闭。
 
 ![Clover](https://i.loli.net/2018/10/29/5bd66b951dfd6.gif)
 
@@ -175,8 +172,8 @@ QuickLook 支持以下格式：
 ##### tampermonkey
 
 > 油猴脚本，一千个司机眼中有一千个油猴；强大的脚本让你可以做很多很爽的事情。比如开车、百度网盘破解直接下载、VIP视频在线解析破解去广告等。
->
-> 会js的话可以自己写个脚本；其实会js都可以直接写个Chrome插件。
+
+会js的话可以自己写个脚本；其实会js都可以直接写个Chrome插件。
 
 ##### AdBlock Plus
 
