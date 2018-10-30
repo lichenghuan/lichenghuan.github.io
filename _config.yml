@@ -102,13 +102,10 @@ page-mathjax: false
 # Friends
 friends: [
     {
-        title: "简书",
-        href: "http://www.jianshu.com"
+        title: "掘金",
+        href: "https://juejin.im/user/599866406fb9a0247637ce2b"
     },{
-        title: "Apple",
-        href: "https://apple.com"
-    },{
-        title: "Apple Developer",
-        href: "https://developer.apple.com/"
+        title: "GitHub",
+        href: "https://github.com/lichenghuan"
     }
 ]
