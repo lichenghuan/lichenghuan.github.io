@@ -33,6 +33,11 @@ tags:
 ![](https://i.loli.net/2018/10/30/5bd7c105ad755.jpg)
 
 ### 其他：
+[wallhaven](https://alpha.wallhaven.cc/random){:target="_blank"}： **高清无水印壁纸**，**免费**，有更多**尺寸**可选！！！
+
+[500px](https://500px.me/community/discover?t=rating){:target="_blank"} ： **高清无水印壁纸**，**免费**。
+
+[simpledesktops](http://simpledesktops.com/){:target="_blank"} ：简约**桌面壁纸**。
 
 [SM.MS](https://sm.ms/){:target="_blank"} ：本地**图片上传**并输出地址，支持gif，不超过5M的图片；markdown编写福利！
 
