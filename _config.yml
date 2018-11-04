@@ -37,7 +37,8 @@ anchorjs: true                          # if you want to customize anchor. check
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
 # make sure you have this gem installed
-# `$ gem install jekyll-paginate`
+# `$ gem install jekyll-paginate`     
+# 安装完jekyll后还不能运行，需要先安装jekyll-paginate之后即可执行jekyll server
 plugins: [jekyll-paginate]
 
 
