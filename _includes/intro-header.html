@@ -47,7 +47,8 @@
                     <p class="meta" style="margin:0 0 24px 0">
                           <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ page.author }} &nbsp;&nbsp;
                           <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ page.date | date: "%Y-%m-%d" }} &nbsp;&nbsp;
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;{{ content | strip_html | strip_newlines | split: "" | size }} words &nbsp;&nbsp;
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;约{{ content | strip_html | strip_newlines | split: "" | size }} words &nbsp;&nbsp;
+                          <br><br>
                           <i class="fa fa-eye" aria-hidden="true"></i>&nbsp; 
                                  <span id="busuanzi_container_page_pv">本文共被围观<span id="busuanzi_value_page_pv"></span>次
                               </span>  &nbsp;&nbsp;

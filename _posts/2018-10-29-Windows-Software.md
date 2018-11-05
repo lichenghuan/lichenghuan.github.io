@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "windows 神兵利器"
+title:      "Windows 神兵利器"
 subtitle:   " \"工欲善其事，必先利其器\""
 date:       2018-10-29 15:00:00
 author:     "huan"
@@ -8,7 +8,6 @@ header-img: "img/post-bg-js-module.jpg"
 catalog: true
 tags:
     - 神兵利器
-    - 分享
 ---
 
 `多图警告`

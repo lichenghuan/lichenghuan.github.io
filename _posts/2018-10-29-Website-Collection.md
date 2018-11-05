@@ -8,7 +8,7 @@ header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
     - 网站收藏
-    - 分享
+    - 面试
 ---
 ### 掘金
 
@@ -29,6 +29,13 @@ tags:
 
 [Loading效果](http://sherlocked93.club/vue-style-codebase/loadingAnimation)
 
+![](https://i.loli.net/2018/10/30/5bd7c105ad755.jpg)
+
+### 面试相关：
+
+[冷熊简历](http://cv.ftqq.com/#)：运行在浏览器里边的 Markdown 编辑器，可以一键生成 PDF ，生成**简历**。
+
+[markyun前端开发面试题](https://github.com/markyun/My-blog/blob/master/Front-end-Developer-Questions/Questions-and-Answers/README.md)
 
 ![](https://i.loli.net/2018/10/30/5bd7c105ad755.jpg)
 
@@ -48,8 +55,6 @@ tags:
 [不会百度么](http://buhuibaidu.me/)：不会百度么？
 
 [GitHub秘籍（中文版）](https://www.kancloud.cn/thinkphp/github-tips/37891)：GitHub使用指南。
-
-[冷熊简历](http://cv.ftqq.com/#)：运行在浏览器里边的 Markdown 编辑器，可以一键生成 PDF ，生成**简历**。
 
 [特殊符号+表情大全](http://cn.piliapp.com/facebook-symbols/)：Facebook**表情**，**emoji**，特殊符号等尽在其中。
 
