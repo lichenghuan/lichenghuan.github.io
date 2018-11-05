@@ -13,7 +13,7 @@ tags:
 
 `多图警告`
 
-##### [Snipaste](https://zh.snipaste.com/index.html){:target="_blank"}
+##### [Snipaste](https://zh.snipaste.com/index.html)
 
 > 截屏工具，比较突出的一点是可以贴图固定在屏幕上，还有取色器功能。
 >
@@ -23,17 +23,17 @@ tags:
 
 
 
-##### [1Clipboard](http://1clipboard.io/){:target="_blank"}
+##### [1Clipboard](http://1clipboard.io/)
 
 > windows剪贴板历史工具，可保存复制过的文字、链接及图片；有macOS版、中文版。 
 >
-> 相比[其他剪贴板历史工具](http://www.pcpop.com/doc/3/3435/3435118.shtml#top){:target="_blank"}，我觉得这个界面比较简洁清新；配合Snipaste用，绝了！
+> 相比[其他剪贴板历史工具](http://www.pcpop.com/doc/3/3435/3435118.shtml#top)，我觉得这个界面比较简洁清新；配合Snipaste用，绝了！
 
 ![](https://i.loli.net/2018/10/29/5bd672bf733c7.jpg)
 
 
 
-##### [斧子演示]( http://www.axeslide.com/){:target="_blank"}
+##### [斧子演示]( http://www.axeslide.com/)
 
 > 描绘你的想象，SHOW YOUR IDEA；一款简单有趣的演示文稿制作软件。
 >
@@ -43,7 +43,7 @@ tags:
 
 
 
-##### [Clover](http://cn.ejie.me/){:target="_blank"}
+##### [Clover](http://cn.ejie.me/)
 
 > Clover 是 Windows 资源管理器的一个扩展，为其增加类似 Chrome 浏览器的多标签页功能。
 >
@@ -53,7 +53,7 @@ tags:
 
 
 
-##### [Bandizip](http://www.bandisoft.com/){:target="_blank"}
+##### [Bandizip](http://www.bandisoft.com/)
 
 > 一款解压软件、无广告！
 >
@@ -65,7 +65,7 @@ tags:
 
 
 
-##### [ScreenToGif](https://www.screentogif.com/?l=zh_cn){:target="_blank"}
+##### [ScreenToGif](https://www.screentogif.com/?l=zh_cn)
 
 > 屏幕，摄像头和白板录像机与集成编辑器。   
 >
@@ -75,7 +75,7 @@ tags:
 
 
 
-##### [typora](https://typora.io/){:target="_blank"}
+##### [typora](https://typora.io/)
 
 > markdown 编辑工具，界面清新、简洁，所见即所得。
 >
@@ -85,7 +85,7 @@ tags:
 
 
 
-##### [QuickLook](https://pooi.moe/QuickLook/){:target="_blank"}
+##### [QuickLook](https://pooi.moe/QuickLook/)
 
 > 一款 Windows 下的桌面快速预览工具，开源、免费。只需要用鼠标选中文件，然后点击空格，即可预览。就像 macOS 里的那样，支持图片、压缩包、PDF、Office 文档、视频等等。
 >
@@ -107,7 +107,7 @@ QuickLook 支持以下格式：
 
 
 
-##### [Postman](https://www.getpostman.com/){:target="_blank"}
+##### [Postman](https://www.getpostman.com/)
 
 > 测试http请求，前后端开发人员利器，用过都说好。
 
@@ -115,7 +115,7 @@ QuickLook 支持以下格式：
 
 
 
-##### [Xmind](https://www.xmind.cn/download/){:target="_blank"}
+##### [Xmind](https://www.xmind.cn/download/)
 
 > 全新的思维导图软件。
 >
@@ -127,7 +127,7 @@ QuickLook 支持以下格式：
 
 
 
-##### [potplayer](http://buhuibaidu.me/?s=potplayer){:target="_blank"}
+##### [potplayer](http://buhuibaidu.me/?s=potplayer)
 
 > 超多功能且强大的视频播放器，无广告；用过以后再也没换其他视频播放器。
 >
@@ -135,9 +135,9 @@ QuickLook 支持以下格式：
 
 
 
-##### [fiddler](https://www.telerik.com/fiddler){:target="_blank"}
+##### [fiddler](https://www.telerik.com/fiddler)
 
-> 超好用的http抓包工具   附上[教程](http://www.hangge.com/blog/cache/detail_1697.html){:target="_blank"}
+> 超好用的http抓包工具   附上[教程](http://www.hangge.com/blog/cache/detail_1697.html)
 
 - http 请求抓取
 - AutoResponder 用法（拦截指定请求，并返回自定义数据）
@@ -148,11 +148,12 @@ QuickLook 支持以下格式：
 
 
 
-##### [Git Extension](https://sourceforge.net/projects/gitextensions/){:target="_blank"}
+##### [Git Extension](https://sourceforge.net/projects/gitextensions/)
 
 > Git版本控制图形化工具，安装时选项上有KDiff3（对比/合并工具），需勾选上。
 >
-> 有中文版，附上[教程](https://www.cnblogs.com/sumuncle/p/7675921.html){:target="_blank"}。
+> 有中文版，附上[教程](https://www.cnblogs.com/sumuncle/p/7675921.html)。
 
 
 
+[更多推荐](https://juejin.im/entry/5af8f07c6fb9a07ac76eec05)

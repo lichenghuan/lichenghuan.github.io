@@ -37,7 +37,7 @@ tags:
 
    **这里如果面试官问到2，3，4，5，6中的一点，你能够把2，3，4，5，6整理到一起，串联起来进行统一的回答效果极佳**
 
-具体参考 [从指向看JavaScript](https://zhuanlan.zhihu.com/p/28058983){:target="_blank"}
+具体参考 [从指向看JavaScript](https://zhuanlan.zhihu.com/p/28058983)
 
 #### JS 基础（ES6）
 
@@ -45,7 +45,7 @@ tags:
 
 2. **Promise**：这里你谈 promise 的时候，除了将他解决的痛点以及常用的 API 之外，最好进行拓展把 eventloop 带进来好好讲一下，microtask、macrotask 的执行顺序，如果看过 promise 源码，最好可以谈一谈 原生 Promise 是如何实现的。Promise 的关键点在于callback 的两个参数，一个是 resovle，一个是 reject。还有就是 Promise 的链式调用（Promise.then()，每一个 then 都是一个责任人）。
 
-   详细参考 [my-promise](https://link.zhihu.com/?target=https%3A//github.com/xuqiang521/overwrite/tree/master/src/my-promise){:target="_blank"}
+   详细参考 [my-promise](https://link.zhihu.com/?target=https%3A//github.com/xuqiang521/overwrite/tree/master/src/my-promise)
 
 3. **Generator**：遍历器对象生成函数，最大的特点是可以交出函数的执行权
 
@@ -277,7 +277,7 @@ tags:
 
    - **FFC**：自适应格式化上下文（display: flex）
 
-   详细参考 [IFC、BFC、GFC 与 FFC 知多少](https://www.liayal.com/article/5a4b645276b2f863f44722cf){:target="_blank"}
+   详细参考 [IFC、BFC、GFC 与 FFC 知多少](https://www.liayal.com/article/5a4b645276b2f863f44722cf)
 
 #### 框架相关
 
@@ -287,8 +287,8 @@ tags:
    - 脏值检测（angularjs）：通过特定事件进行轮循
    - 发布/订阅模式：通过消息发布并将消息进行订阅
 
-   详细细节参考 [实现一个属于我们自己的简易MVVM库](https://zhuanlan.zhihu.com/p/27028242){:target="_blank"}
-   扩充：[如何监听数组变化](https://zhuanlan.zhihu.com/p/27166404){:target="_blank"}
+   详细细节参考 [实现一个属于我们自己的简易MVVM库](https://zhuanlan.zhihu.com/p/27028242)
+   扩充：[如何监听数组变化](https://zhuanlan.zhihu.com/p/27166404)
 
 2. **VDOM**：三个 part
 
@@ -296,7 +296,7 @@ tags:
    - 节点 diff 比较：对虚拟节点进行 js 层面的计算，并将不同的操作都记录到 patch 对象
    - re-render：解析 patch 对象，进行 re-render
 
-   详细请参考 [实现Virtual Dom && Diff](https://zhuanlan.zhihu.com/p/27437595){:target="_blank"}
+   详细请参考 [实现Virtual Dom && Diff](https://zhuanlan.zhihu.com/p/27437595)
 
    > 补充1：VDOM 的必要性？
 
@@ -329,7 +329,7 @@ tags:
 
 1. **跨域**：很多种方法，但万变不离其宗，都是为了搞定同源策略。重用的有 jsonp、iframe、cors、img、HTML5 postMessage等等。其中用到 html 标签进行跨域的原理就是 html 不受同源策略影响。但只是接受 Get 的请求方式，这个得清楚。
 
-   [传送门](https://zhuanlan.zhihu.com/p/25654664){:target="_blank"}
+   [传送门](https://zhuanlan.zhihu.com/p/25654664)
 
    > 延伸1：img iframe script 来发送跨域请求有什么优缺点？
 
@@ -410,7 +410,7 @@ tags:
    - 通过增加cookie和session机制，现在的网络请求其实是有状态的
    - 在没有状态的http协议下，服务器也一定会保留你每次网络请求对数据的修改，但这跟保留每次访问的数据是不一样的，保留的只是会话产生的结果，而没有保留会话
 
-   详细参考 [HTTP是一个无状态的协议。这句话里的无状态是什么意思？](https://www.zhihu.com/question/23202402){:target="_blank"}
+   详细参考 [HTTP是一个无状态的协议。这句话里的无状态是什么意思？](https://www.zhihu.com/question/23202402)
 
 3. **http-cache**：就是 http 缓存咯
    **首先得明确 http 缓存的好处**
@@ -527,14 +527,14 @@ tags:
 
      防范：记住一点 “所有用户输入都是不可信的”，所以得做输入过滤和转义
 
-     详细点击 [对于跨站脚本攻击（XSS攻击）的理解和总结](https://link.zhihu.com/?target=http%3A//www.imooc.com/article/13553){:target="_blank"}
+     详细点击 [对于跨站脚本攻击（XSS攻击）的理解和总结](https://link.zhihu.com/?target=http%3A//www.imooc.com/article/13553)
 
    - CSRF：跨站请求伪造，也称 XSRF，是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。与 XSS 相比，XSS利用的是用户对指定网站的信任，CSRF利用的是网站对用户网页浏览器的信任。
 
      防范：用户操作验证（验证码），额外验证机制（token使用）等
 
-     详细点击 [对于跨站伪造请求（CSRF）的理解和总结](https://link.zhihu.com/?target=http%3A//www.imooc.com/article/13552){:target="_blank"}
+     详细点击 [对于跨站伪造请求（CSRF）的理解和总结](https://link.zhihu.com/?target=http%3A//www.imooc.com/article/13552)
 
 
 
-本文转载自[记小栈](https://www.liayal.com/article/5aa9dadca6cf4e67bc05c9e7){:target="_blank"}。
+本文转载自[记小栈](https://www.liayal.com/article/5aa9dadca6cf4e67bc05c9e7)
