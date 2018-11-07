@@ -147,6 +147,16 @@ QuickLook 支持以下格式：
 
 
 
+##### [Tickeys](http://www.yingdev.com/projects/tickeys)  
+
+> 为打字配上音效的小软件，虽然没什么实际用途但是挺好玩。
+>
+> 热键  'QAZ123'  打开设置窗口。
+
+ ![](https://i.loli.net/2018/11/07/5be302bf18b9c.gif)
+
+
+
 ##### [Git Extension](https://sourceforge.net/projects/gitextensions/)
 
 > Git版本控制图形化工具，安装时选项上有KDiff3（对比/合并工具），需勾选上。
@@ -156,3 +166,7 @@ QuickLook 支持以下格式：
 
 
 [更多推荐](https://juejin.im/entry/5af8f07c6fb9a07ac76eec05)
+
+
+
+[Windows 有哪些冷门但是非常值得推荐的软件？](https://www.zhihu.com/question/26412028/answer/313617021)
