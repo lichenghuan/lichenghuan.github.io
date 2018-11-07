@@ -149,7 +149,7 @@ QuickLook 支持以下格式：
 
 ##### [Tickeys](http://www.yingdev.com/projects/tickeys)  
 
-> 为打字配上音效的小软件，虽然没什么实际用途但是挺好玩。
+> 为打字配上音效的小软件，虽然没什么实际用途，有点减压效果。
 >
 > 热键  'QAZ123'  打开设置窗口。
 
