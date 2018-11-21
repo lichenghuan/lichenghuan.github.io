@@ -10,10 +10,6 @@ tags:
     - 网站收藏
     - 面试
 ---
-### 掘金
-
-[掘金2018上优质文章](https://juejin.im/post/5b3adfe2e51d4555b17e85df)：2018上半年掘金前端优质文章
-
 
 
 ### Javascript
@@ -65,6 +61,11 @@ tags:
 | [恶意软件分析网站](https://www.virustotal.com/zh-cn/)        | VirusTotal是一个免费的病毒，蠕虫，木马和各种恶意软件分析服务。可以针对可疑文件和网址进行快速检测。 |              |
 | [前端网页设计](https://www.seeseed.com/)                     | 各种前端设计；包括图标、图库、配色、字体、素材、规范、工具等 | 很不错       |
 | [翻墙](https://github.com/search?q=%E7%BF%BB%E5%A2%99)       | gayhub搜翻墙一大把                                           |              |
+| **前端收藏**                                                 |                                                              |              |
+| [前端收藏夹](http://collect.w3ctrain.com/)                   | 别人博客的收藏大全，很全面                                   |              |
+| [掘金2018上优质文章](https://juejin.im/post/5b3adfe2e51d4555b17e85df) | 稀土掘金                                                     |              |
+| [朱邦邦的JavaScript学习笔记](https://github.com/zhubangbang/zhubangbang-javascript-notes) |                                                              |              |
+| [前端文档汇总](https://github.com/mgbq/front-end-Doc)        | 含代码规范、开发流程、知识分享,持续更新                      |              |
 
 
 
