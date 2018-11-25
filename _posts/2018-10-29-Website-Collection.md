@@ -51,8 +51,8 @@ tags:
 | [有道云笔记](http://note.youdao.com/?auto=1)                 | 支持markdown、脑图、word、上传文件等                         |              |
 | **图片工具**                                                 |                                                              |              |
 | [在线版 Photoshop](https://www.photopea.com/)                | 前端编写的在线版PS，可以设为中文版（左上角More->language->简化体 中文） |              |
-| [SM.MS](https://sm.ms/)                                      | 本地图片上传并输出地址，支持gif，不超过5M的图片；markdown编写福利！ |              |
-| [路过图床](https://imgchr.com/)                              | 本地图片上传并输出地址，支持gif，不超过10M的图片；页面有广告 |              |
+| [SM.MS](https://sm.ms/)                                      | 本地图片上传并输出地址，支持gif，不超过5M的图片；            |              |
+| [路过图床](https://imgchr.com/)                              | 本地图片上传并输出地址，支持gif，不超过10M的图片；支持粘贴图片上传，页面有广告 |              |
 | **其他**                                                     |                                                              |              |
 | [不会百度么](http://buhuibaidu.me/)                          | 不会百度么？                                                 |              |
 | [GitHub秘籍（中文版）](https://www.kancloud.cn/thinkphp/github-tips/37891) | GitHub使用指南。                                             |              |
