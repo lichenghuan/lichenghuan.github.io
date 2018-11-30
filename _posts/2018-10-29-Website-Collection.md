@@ -16,16 +16,16 @@ tags:
 
 [jquery插件库](http://www.jq22.com/)：jq22，也有很多css，canvas效果示例。
 
-[awesome](https://www.awesomes.cn/rank?sort=hot)：前端技术 TOP 100
+[awesome](https://www.awesomes.cn/rank?sort=hot)：前端技术 TOP 100。
+
+[Lodash](https://www.lodashjs.com/)：通过降低 **array、number、objects、string** 等等的使用难度从而让 JavaScript 变得更简单。（不能太依靠这些工具，可以看下源码）
 
 
 
 
 ### CSS
 
-[Loading效果](http://sherlocked93.club/vue-style-codebase/loadingAnimation)
-
-[Can I Use ?](https://caniuse.com/) ：为前端开发人员定制的一个查询CSS、Js在各个主流浏览器中的特性和兼容性的网站
+[Can I Use ?](https://caniuse.com/) ：为前端开发人员定制的一个查询CSS、Js在各个主流浏览器中的特性和兼容性的网站。
 
 
 
@@ -65,7 +65,7 @@ tags:
 | **前端收藏**                                                 |                                                              |                  |
 | [前端收藏夹](http://collect.w3ctrain.com/)                   | 别人博客的收藏大全，很全面                                   |                  |
 | [掘金2018上优质文章](https://juejin.im/post/5b3adfe2e51d4555b17e85df) | 稀土掘金                                                     |                  |
-| [朱邦邦的JavaScript学习笔记](https://github.com/zhubangbang/zhubangbang-javascript-notes) |                                                              |                  |
+| [朱邦邦的JavaScript学习笔记](https://github.com/zhubangbang/zhubangbang-javascript-notes) | 别人的学习笔记                                               |                  |
 | [前端文档汇总](https://github.com/mgbq/front-end-Doc)        | 含代码规范、开发流程、知识分享,持续更新                      |                  |
 
 
