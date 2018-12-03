@@ -193,7 +193,7 @@ tags:
 4. 我们选择 ‘上传设置‘ 选项，它会自动在浏览器打开你的github页面，说实话，刚才生成的token我没记，更新一下token，如下图![](https://i.loli.net/2018/12/03/5c04d6977fc9a.gif)拿到token，返回编辑器会有一个输入框，粘贴即可，回车！![](https://i.loli.net/2018/12/03/5c04d7a8c8459.png)很显然，提示返回成功了。失败的话重置下，再按照上面上传步骤试下。上图的GitHub Gist**很重要！很重要！很重要！** GitHub Token记住更好，下载配置的时候只需要 GitHub Token和GitHub Gist即可同步配置。
 
 5. 以上就是**上传配置**，接下来就是同步到另一台设备的vscode**下载操作**。
-   打开第3步的**sync选项**，选择**下载设置**，会出现一个输入窗，让你输入GitHub token（不记得就按照第4刷新下token），回车；又弹出另一个输入框，输入Gist id（就是GitHub Gist），回车就OK了，右下角会弹提示。
+   当然，需要先下载 Settings Sync插件，接下来打开第3步的**sync选项**，选择**下载设置**，会出现一个输入窗，让你输入GitHub token（不记得就按照第4刷新下token），回车；又弹出另一个输入框，输入Gist id（就是GitHub Gist），回车就OK了，右下角会弹提示。
 
 6. 在这里记一下自己的GitHub Gist（Gist id）   `954d9bffccadba629b8a7dbda8f2387c`  上面的token我更新过了，你们拿我的Gist id也没用。
 
