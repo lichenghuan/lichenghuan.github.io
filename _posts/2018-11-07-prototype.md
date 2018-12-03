@@ -7,7 +7,7 @@ author:     "huan"
 header-img: "img/ArticleBg/post-bg-js-version.jpg"
 catalog: true
 tags:
-    - javascript
+    - JavaScript
 ---
 
 

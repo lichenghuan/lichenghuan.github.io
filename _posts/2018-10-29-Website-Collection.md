@@ -7,8 +7,7 @@ author:     "huan"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
-    - 网站收藏
-    - 面试
+    - 收藏
 ---
 
 
