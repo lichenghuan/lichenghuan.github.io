@@ -20,7 +20,7 @@ tags:
 
 放上我常用的几个代码快捷片段，放到html、js、css其中之一的json文件好像都可以的。
 
-```json
+```javascript
 {
     /*
 	// Place your snippets for HTML here. Each snippet is defined under a snippet name and has a prefix, body and 
@@ -96,7 +96,7 @@ tags:
 
 贴上自用的keybindings.json
 
-```json
+```javascript
 //自定义
 [{
     "key": "ctrl+b",
@@ -132,7 +132,7 @@ tags:
 
 贴上修改过的settings.json
 
-```json
+```javascript
 {
     "workbench.iconTheme": "vscode-great-icons",
     "editor.renderControlCharacters": true,
