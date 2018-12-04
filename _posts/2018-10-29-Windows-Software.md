@@ -84,6 +84,29 @@ tags:
 
 
 
+##### [PicGo](https://github.com/Molunerfinn/PicGo/releases)
+
+> 基于electron的图片上传工具
+>
+> 编写markdown再也不用担心嵌入图片外链了
+
+支持多种图床：
+
+- 微博图床
+- 七牛图床
+- 腾讯云COS
+- 又拍云图床
+- GitHub图床
+- SM.MS图床
+- 阿里云OSS
+- Imgur图床
+
+**[SM.MS图床](https://sm.ms/)**目前完全免费且无须登录即可使用（最大支持5M，可上传gif），其他或收费或要登录。
+
+![](https://i.loli.net/2018/12/04/5c05ec22b891f.gif)
+
+
+
 ##### [QuickLook](https://pooi.moe/QuickLook/)
 
 > 一款 Windows 下的桌面快速预览工具，开源、免费。只需要用鼠标选中文件，然后点击空格，即可预览。就像 macOS 里的那样，支持图片、压缩包、PDF、Office 文档、视频等等。
