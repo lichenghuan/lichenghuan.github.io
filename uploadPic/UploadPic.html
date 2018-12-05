@@ -10,6 +10,7 @@ layout: default
 	<meta charset='UTF-8'>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 	<title>图床上传</title>
+	<link rel="stylesheet" href="./css/toast.css">
 	<style>
 		*{
 			margin: 0;
@@ -206,7 +207,24 @@ layout: default
 
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+<script src="./js/toast.js"></script>
 <script type="text/javascript">
+
+	function Toast(title, msg, type) {
+		$.Toast(title, msg, type, {
+			stack: true,
+			has_icon: true,
+			has_close_btn: true,
+			fullscreen: false,
+			timeout: 3000,
+			sticky: false,
+			has_progress: true,
+			rtl: false,
+		});
+	}
+
+
+	// $.Toast("成功", "", "已复制到剪切板", {});
 
 	function update(type) {
 		$('#file').val('');
@@ -245,9 +263,9 @@ layout: default
 				var maxSize = 10485760;
 		}
 		if (ext != '.PNG' && ext != '.GIF' && ext != '.JPG' && ext != '.JPEG' && ext != '.BMP') {
-			parent.alert('文件类型错误,请上传图片类型'); return false;
+			Toast('错误', '文件类型错误,请上传图片类型', 'error'); return false;
 		} else if (parseInt(fileSize) >= parseInt(maxSize)) {
-			parent.alert('上传的文件不能超过' + maxSize / 1024 / 1024 + 'MB'); return false;
+			Toast('错误', '上传的文件不能超过' + maxSize / 1024 / 1024 + 'MB', 'error'); return false;
 		} else {
 			var data = new FormData($('#form1')[0]);
 
@@ -291,7 +309,7 @@ layout: default
 				}
 			}).done(function (ret) {
 				if (ret['code'] == '1') {
-					
+					Toast('成功', '上传成功，请骚等', 'success')
 					var img = '';
 					var imgurl = '';
 					if (type != 'sina') {
@@ -328,7 +346,7 @@ layout: default
 	function oCopy(obj) {
 		obj.select();
 		document.execCommand("Copy");  //执行复制
-		console.log('已复制到剪切板');
+		Toast('成功', '已复制到剪切板', 'success')
 	}
 
 </script>
