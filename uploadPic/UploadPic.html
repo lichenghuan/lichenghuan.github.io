@@ -216,15 +216,13 @@ layout: default
 			has_icon: true,
 			has_close_btn: true,
 			fullscreen: false,
-			timeout: 3000,
+			timeout: 5000,
 			sticky: false,
 			has_progress: true,
 			rtl: false,
 		});
 	}
 
-
-	// $.Toast("成功", "", "已复制到剪切板", {});
 
 	function update(type) {
 		$('#file').val('');
@@ -303,13 +301,14 @@ layout: default
 				xhr: function () {
 					var xhr = $.ajaxSettings.xhr();
 					if (onprogress && xhr.upload) {
+						Toast('提醒', '上传中，请骚等', 'info');
 						xhr.upload.addEventListener("progress", onprogress, false);
 						return xhr;
 					}
 				}
 			}).done(function (ret) {
 				if (ret['code'] == '1') {
-					Toast('成功', '上传成功，请骚等', 'success')
+					Toast('成功', '上传成功', 'success');
 					var img = '';
 					var imgurl = '';
 					if (type != 'sina') {
