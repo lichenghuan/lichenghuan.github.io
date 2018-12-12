@@ -37,10 +37,10 @@ layout: default
 
 			<div class="imgContent" id="imgContent">
 				<div id="imgurl">
-					<p><label for="Imgs_markdown">Markdown</label><input onclick="oCopy(this)" value="" id="Imgs_markdown"></p>
-					<p><label for="Imgs_url">ImgUrl</label><input onclick="oCopy(this)" value="" id="Imgs_url"></p>
-					<p><label for="Imgs_html">HtmlUrl</label><input onclick="oCopy(this)" value="" id="Imgs_html"></p>
-					<p><label for="Imgs_Ubb">Ubb</label><input onclick="oCopy(this)" value="" id="Imgs_Ubb"></p>
+					<p><label for="Imgs_markdown">Markdown</label><input onclick="oCopy(this)" value="" spellcheck='false' id="Imgs_markdown"></p>
+					<p><label for="Imgs_url">ImgUrl</label><input onclick="oCopy(this)" value="" spellcheck='false' id="Imgs_url"></p>
+					<p><label for="Imgs_html">HtmlUrl</label><input onclick="oCopy(this)" value="" spellcheck='false' id="Imgs_html"></p>
+					<p><label for="Imgs_Ubb">Ubb</label><input onclick="oCopy(this)" value="" spellcheck='false' id="Imgs_Ubb"></p>
 				</div>
 			</div>
 
@@ -77,7 +77,7 @@ layout: default
 			has_icon: true,
 			has_close_btn: true,
 			fullscreen: false,
-			timeout: 5000,
+			timeout: 3000,
 			sticky: false,
 			has_progress: true,
 			rtl: false,
@@ -188,6 +188,7 @@ layout: default
 		var loaded = evt.loaded;
 		var tot = evt.total;
 		var per = Math.floor(100 * loaded / tot);
+		console.log(per)
 		$('#pg').val(per);
 
 	}
