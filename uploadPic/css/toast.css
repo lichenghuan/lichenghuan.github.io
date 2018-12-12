@@ -1,11 +1,5 @@
 @charset "UTF-8";
-@font-face {
-  font-family: 'toast';
-  src: url("../fonts/toast.eot?76tjxy");
-  src: url("../fonts/toast.eot?76tjxy#iefix") format("embedded-opentype"), url("../fonts/toast.ttf?76tjxy") format("truetype"), url("../fonts/toast.woff?76tjxy") format("woff"), url("../fonts/toast.svg?76tjxy#toast") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
+ 
 i {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'toast' !important;
@@ -20,19 +14,19 @@ i {
   -moz-osx-font-smoothing: grayscale; }
 
 .toast-icon-error:before {
-  content: ""; }
+  content: "😱"; }
 
 .toast-icon-info:before {
-  content: ""; }
+  content: "🙂"; }
 
 .toast-icon-notice:before {
-  content: ""; }
+  content: "😳"; }
 
 .toast-icon-success:before {
-  content: ""; }
+  content: "😁"; }
 
 .toast-icon-warning:before {
-  content: ""; }
+  content: "😣"; }
 
 .toast-item-wrapper {
   min-width: 250px;
@@ -101,7 +95,7 @@ i {
   .toast-item-wrapper p {
     margin: 0; }
   .toast-item-wrapper .toast-message {
-    font-size: 0.87rem; }
+    font-size: 1.17rem; }
   .toast-item-wrapper .toast-progress {
     width: 0;
     height: 3px;

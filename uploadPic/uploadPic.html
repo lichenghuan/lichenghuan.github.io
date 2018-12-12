@@ -10,173 +10,15 @@ layout: default
 	<meta charset='UTF-8'>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 	<title>图床上传</title>
-	<link rel="stylesheet" href="css/toast.css">
-	<script src="js/toast.js"></script>
-	<style>
-		*{
-			margin: 0;
-			padding: 0;
-	}
-	html,body{
-		background:url('https://ws3.sinaimg.cn/large/005BYqpgly1fxwa6h1y2sj31hc0u07f5.jpg') no-repeat;
-		background-size:100% 100%;
-		height: 100%;
-	}
-	
-	.cont {
-		background: #fff;
-		position: absolute;
-		left: 50%;
-		top: 80PX;
-		transform: translateX(-50%);
-		width: 90%;
-		max-width: 800px;
-		border-radius: 10px;
-		box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-		-webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-		overflow: hidden;
-		margin-bottom: 10px;
-	}
-	.cont #hero-img {
-		position: relative;
-		width: 100%;
-		min-height: 200px;
-		user-select: none;
-		background: #009688;
-		text-align: center;
-		padding: 20px;
-		box-sizing: border-box;
-	}	
-	.cont #content {
-		background: #fff;
-		position: relative;
-		text-align: center;
-		width: 100%;
-		padding:10px;
-		box-sizing: border-box;
-		min-height: 200px;
-	}
-	.cont .formBox{
-		user-select: none;
-	}
-	.cont .formBox #form1 span {
-		display: inline-block;
-		width: 90px;
-		margin-right: 10px;
-		box-sizing: border-box;
-		border: 1px solid #009688;
-		text-align: center;
-		line-height: 50px;
-		height: 50px;
-		cursor: pointer;
-		user-select: none;
-		color: #fff;
-		background: #009688;
-		border-radius: 5px;
-	}
-	.cont .formBox #form1 span:hover {
-		color: #009688;
-		background: #fff;
-	}
-	.imgType{
-		display: none;
-	}
-	#images img{
-		max-width: 380px;
-		width: 100%;
-		cursor: pointer;
-		margin-top: 10px;
-		box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-		-webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-	}
-	#images img:hover{
-		box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
-		-webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
-	}
-	#imgurl{
-		/* display: none; */
-		padding: 10px;
-	}	
-	#imgurl p{
-		margin: 10px 0 5px 0;
-	}
-	#imgurl p label{
-		display: inline-block;
-		width: 110px;
-		font-weight: 400;
-		cursor: pointer;
-	}
-
-	#imgurl input::selection {
-    	background:#fff;
-    	color:#009688;
-	}
-	#imgurl input::-moz-selection {
-    	background:#fff;
-    	color:#009688;
-	}
-	#imgurl input::-webkit-selection {
-		background:#fff;
-    	color:#009688;
-	}
-	#imgurl input {
-		border:0; 
-		padding:2px; 
-		color:rgb(110, 110, 110); 	
-		border:solid 1px #ccc; 
-		width: 78%;
-		-moz-box-shadow: inset 0 0 4px rgba(0,0,0,0.2); 
-		-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2); 
-		box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
-		-webkit-border-radius: 3px; 
-		-moz-border-radius: 3px; 
-		border-radius: 3px;
-	}
-	#imgurl input:focus { 
-    	outline: none !important;
-    	border:1px solid #009688;
-    	box-shadow: 0 0 10px #719ECE;
-	}
- 
-	#progress{
-		display: none;
-		position: absolute;
-		left: 50%;
-		bottom: 20px;
-		transform: translateX(-50%);
-	}
-
-	.titleColor{
-		color:#034460;
-	
-	}
-  
-	@-webkit-keyframes rotation{
-		from {-webkit-transform: rotate(0deg);}
-		to {-webkit-transform: rotate(360deg);}
-	}
-
-	.Rotation{
-		-webkit-transform: rotate(360deg);
-		animation: rotation 3s linear infinite;
-		-moz-animation: rotation 3s linear infinite;
-		-webkit-animation: rotation 3s linear infinite;
-		-o-animation: rotation 3s linear infinite;
-	}
-
-	.img{border-radius: 250px;}	
-
-	footer{
-		display: none !important;
-	}
-</style>
+	<link rel="stylesheet" href="../css/toast.css">
+	<link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
 	<div class="cont">
 		<div id='hero-img'>
 			<h2 class="titleColor">图床上传</h2>
-			<h5 class="titleColor" style="margin-top:8px;">新浪图床10M-搜狗图床2M-360图床2M-百度图床2M</h5>
+			<h5 class="titleColor" style="margin-top:8px;">新浪图床10M / 搜狗图床2M / 360图床2M / 百度图床2M</h5>
 			<div id="progress"><progress max="100" value="0" id="pg"></progress></div>
 			<div id="images"></div>
 		</div>
@@ -207,21 +49,17 @@ layout: default
 
 
 </body>
-<script type="text/javascript">
 
-	function Toast(title, msg, type) {
-		$.Toast(title, msg, type, {
-			stack: true,
-			has_icon: true,
-			has_close_btn: true,
-			fullscreen: false,
-			timeout: 5000,
-			sticky: false,
-			has_progress: true,
-			rtl: false,
-		});
-	}
+<script src="../js/toast.js"></script>
+<script>
 
+	// $(function () {
+	// 	Toaster('成功', 'msg', 'success');
+	// 	Toaster('失败', 'msg', 'error');
+	// 	Toaster('普通', 'msg', 'info');
+	// 	Toaster('警告', 'msg', 'warning');
+	// 	Toaster('注意', 'msg', 'notice');
+	// })
 
 	function update(type) {
 		$('#file').val('');
@@ -232,6 +70,19 @@ layout: default
 	}
 
 
+
+	function Toaster(title, msg, type) {
+		$.Toasters(title, msg, type, {
+			stack: true,
+			has_icon: true,
+			has_close_btn: true,
+			fullscreen: false,
+			timeout: 5000,
+			sticky: false,
+			has_progress: true,
+			rtl: false,
+		});
+	}
 	function sc(type) {
 		if (!type) { return false; }
 		var animateimg = $("#file").val();
@@ -260,14 +111,13 @@ layout: default
 				var maxSize = 10485760;
 		}
 		if (ext != '.PNG' && ext != '.GIF' && ext != '.JPG' && ext != '.JPEG' && ext != '.BMP') {
-			Toast('错误', '文件类型错误,请上传图片类型', 'error'); return false;
+			Toaster('失败', '文件类型错误,请上传图片类型', 'error'); return false;
 		} else if (parseInt(fileSize) >= parseInt(maxSize)) {
-			Toast('错误', '上传的文件不能超过' + maxSize / 1024 / 1024 + 'MB', 'error'); return false;
+			parent.alert(); return false;
+			Toaster('失败', '上传的文件不能超过' + maxSize / 1024 / 1024 + 'MB', 'error'); return false;
 		} else {
 			var data = new FormData($('#form1')[0]);
-
 			var YoungxjApisToken = 'f07b711396f9a05bc7129c4507fb65c5';
-
 			switch (type) {
 				case 'sougou':
 					var apiUrl = 'https://apis.yum6.cn/api/5bd7f16aa33d7';
@@ -284,6 +134,7 @@ layout: default
 				default:
 					return false;
 			};
+			Toaster('成功', '上传中，请骚等', 'success');
 			$('#Imgs_url').val('');
 			$('#Imgs_html').val('');
 			$('#Imgs_Ubb').val('');
@@ -300,14 +151,14 @@ layout: default
 				xhr: function () {
 					var xhr = $.ajaxSettings.xhr();
 					if (onprogress && xhr.upload) {
-						Toast('提醒', '上传中，请骚等', 'info');
 						xhr.upload.addEventListener("progress", onprogress, false);
 						return xhr;
 					}
 				}
 			}).done(function (ret) {
+
 				if (ret['code'] == '1') {
-					Toast('成功', '上传成功', 'success');
+					Toaster('成功', '上传成功', 'success');
 					var img = '';
 					var imgurl = '';
 					if (type != 'sina') {
@@ -343,8 +194,8 @@ layout: default
 	}
 	function oCopy(obj) {
 		obj.select();
-		document.execCommand("Copy");  //执行复制
-		Toast('成功', '已复制到剪切板', 'success')
+		document.execCommand("Copy");
+		Toaster('成功', '已复制到剪切板', 'success');
 	}
 
 </script>
