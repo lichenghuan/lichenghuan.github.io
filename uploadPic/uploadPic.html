@@ -12,6 +12,27 @@ layout: default
 	<title>图床上传</title>
 	<link rel="stylesheet" href="../css/toast.css">
 	<link rel="stylesheet" href="../css/style.css">
+
+	<style>
+		.move{
+       		border:10px solid transparent;	
+       		background:linear-gradient(white,white) padding-box,repeating-linear-gradient(45deg,#009688 25%,#009688 0,#009688 50%,#0e648b 0 ,#009688 75%,rgb(6, 90, 146) 0) 0 / 40px 40px;
+       		animation: moves 30s linear infinite;
+		}
+
+		@keyframes moves{
+   			to{
+   				background-position: 100%;
+   			}
+		   }
+		   
+		   .loadingBar{
+			   display: none;
+			   height: 5px;
+			   background: #29ab9f;
+		   }
+	
+	</style>
 </head>
 
 <body>
@@ -19,10 +40,10 @@ layout: default
 		<div id='hero-img'>
 			<h2 class="titleColor">图床上传</h2>
 			<h5 class="titleColor" style="margin-top:8px;">新浪图床10M / 搜狗图床2M / 360图床2M / 百度图床2M</h5>
-			<div id="progress"><progress max="100" value="0" id="pg"></progress></div>
+			<!-- <div id="progress"><progress max="100" value="0" id="pg"></progress></div> -->
 			<div id="images"></div>
 		</div>
-
+		<div class="loadingBar"></div>
 		<div id='content'>
 			<p class="imgType" id="imgType"></p>
 			<div class="formBox">
@@ -86,7 +107,7 @@ layout: default
 	function sc(type) {
 		if (!type) { return false; }
 		var animateimg = $("#file").val();
-		$('#pg').val('0');
+		// $('#pg').val('0');
 		var imgarr = animateimg.split('\\');
 		var myimg = imgarr[imgarr.length - 1];
 		var houzui = myimg.lastIndexOf('.');
@@ -140,6 +161,7 @@ layout: default
 			$('#Imgs_markdown').val('');
 			$('#images').hide();
 			$('#progress').show();
+			
 			$.ajax({
 				url: apiUrl + '?token=' + YoungxjApisToken,
 				type: 'POST',
@@ -174,8 +196,12 @@ layout: default
 					$('#progress').hide();
 					$('#images').html(img).show();
 					$('#imgurl').show();
+					$(".cont").removeClass("move");
+					$(".loadingBar").hide();
 				} else {
 					$('#progress').hide();
+					$(".loadingBar").hide();
+					$(".cont").removeClass("move");
 					Toaster('失败', ret['msg'], 'error');
 				}
 
@@ -185,11 +211,16 @@ layout: default
 	}
 
 	function onprogress(evt) {
+		$(".loadingBar").show();
 		var loaded = evt.loaded;
 		var tot = evt.total;
 		var per = Math.floor(100 * loaded / tot);
-		console.log(per)
-		$('#pg').val(per);
+		$(".loadingBar").css('width', '' + per + '%');
+		// $('#pg').val(per);
+		if (per > 1) {
+			$(".cont").addClass("move");
+		}
+
 
 	}
 	function oCopy(obj) {

@@ -11,6 +11,8 @@ body {
 }
 
 .cont {
+    box-sizing: border-box;
+    border:10px solid #009688;	
     background: #fff;
     position: absolute;
     left: 50%;
@@ -41,9 +43,10 @@ body {
     position: relative;
     text-align: center;
     width: 100%;
-    padding: 10px;
+    padding: 10px;  
     box-sizing: border-box;
     min-height: 200px;
+    border-radius: 5px;
 }
 
 .cont .formBox {
