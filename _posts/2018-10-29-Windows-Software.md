@@ -145,7 +145,7 @@ QuickLook 支持以下格式：
 
 
 
-![](https://s3.cn-north-1.amazonaws.com.cn/assets.xmind.cn/www/assets/images/xmind8-pro/banner/img_8_heroimg@2x-0d2e865253.png)
+![](https://img01.sogoucdn.com/app/a/100520146/0D2E865253492B98D7D05EC4D7534AAC)
 
 
 
