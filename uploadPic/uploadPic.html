@@ -113,7 +113,6 @@ layout: default
 		if (ext != '.PNG' && ext != '.GIF' && ext != '.JPG' && ext != '.JPEG' && ext != '.BMP') {
 			Toaster('失败', '文件类型错误,请上传图片类型', 'error'); return false;
 		} else if (parseInt(fileSize) >= parseInt(maxSize)) {
-			parent.alert(); return false;
 			Toaster('失败', '上传的文件不能超过' + maxSize / 1024 / 1024 + 'MB', 'error'); return false;
 		} else {
 			var data = new FormData($('#form1')[0]);
@@ -177,7 +176,7 @@ layout: default
 					$('#imgurl').show();
 				} else {
 					$('#progress').hide();
-					parent.alert(ret['msg']);
+					Toaster('失败', ret['msg'], 'error');
 				}
 
 			});
