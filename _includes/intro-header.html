@@ -9,7 +9,7 @@
   }
 
   *{
-      cursor: url('./a.cur'),default;
+      cursor: url('{{ site.baseurl }}/_includes/a.cur'),default;
   }
 
 
@@ -43,7 +43,7 @@
 {% else %}
 <header class="intro-header" >
 {% endif %}
-    <div class="header-mask"></div>
+    <div class="header-mask"></div> 
     {% if page.header-img-credit %}
     <div class="header-img-credit">
         Image by <a href="//{{page.header-img-credit-href}}">{{page.header-img-credit}}</a>
