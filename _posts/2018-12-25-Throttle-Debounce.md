@@ -12,13 +12,19 @@ tags:
 
 **函数防抖（debounce）与函数节流（throttle）**都是为了限制函数的执行频次，以优化函数触发频率过高导致的响应速度跟不上触发频率，出现延迟，假死或卡顿的现象。
 
+### 目的：
+
+**函数防抖（debounce）与函数节流（throttle）**都是为了限制函数的执行频次，以优化函数触发频率过高导致的响应速度跟不上触发频率，出现延迟，假死或卡顿的现象。
+
 [防抖和节流体验对比地址](http://demo.nimius.net/debounce_throttle/)
 
 ![](https://ws3.sinaimg.cn/large/005BYqpgly1fyizmvt84ng31gz0gsjx1.jpg)
 
 
 
-**函数防抖（debounce）**: 频繁触发,当有足够空闲的时间才执行一次代码 （事件内的N个动作会变忽略，只有事件后`由程序触发`的动作才是有效。）
+### 函数防抖
+
+**频繁触发,当有足够空闲的时间才执行一次代码 （事件内的N个动作会变忽略，只有事件后`由程序触发`的动作才是有效。）**
 
 使用场景：
 
@@ -60,7 +66,9 @@ div.onmousemove = debounce(fn, 200);
 
 
 
-**函数节流（throttle）**: 频繁触发,但只在特定的时间内才执行一次代码
+### 函数节流
+
+**频繁触发,但只在特定的时间内才执行一次代码**
 
 使用场景：
 
@@ -107,7 +115,7 @@ div.onmousemove = throttle(fn, 600);
 
 
 
-在线演示
+### 在线演示
 
 <div style='width:100%;height:780px'>
      <iframe src="https://codepen.io/lichenghuan/pen/VqWjdv?editors=0010" frameborder="0" align="left"  height="780" scrolling="yes" style='width:100%'>
