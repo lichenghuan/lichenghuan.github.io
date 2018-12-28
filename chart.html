@@ -12,6 +12,10 @@
 
     <div id="chart" style="height:400px;"></div>
 
+    </br>
+
+    <div id="chart2" style="height:400px;"></div>
+
 </body>
 
 </html>
@@ -22,46 +26,19 @@
     // 初始化图表标签
     var myChart = echarts.init(document.getElementById('chart'));
 
-
+    var myChart2 = echarts.init(document.getElementById('chart2'));
 
     $.getJSON('./boss.json', function (res) {
-
         var salaryArr = [];
         var companyArr = [];
-        console.log(res)
 
         res.forEach(item => {
-
             var num = item.salary.match(/\d+/g);
             var x = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
             console.log(x)
             companyArr.push(item.company)
             salaryArr.push(x);
         });
-        // var options = {
-        //     //定义一个标题
-        //     title: {
-        //         text: '测试成绩'
-        //     },
-        //     legend: {
-        //         data: ['xxx']
-        //     },
-        //     //X轴设置
-        //     xAxis: {
-        //         data: companyArr
-        //     },
-        //     yAxis: {
-
-        //     },
-        //     //name=legend.data的时候才能显示图例
-        //     series: [{
-        //         name: 'xxx',
-        //         type: 'bar',
-        //         data: salaryArr
-        //     }]
-
-        // };
-        // myChart.setOption(options);
 
         myChart.setOption(option = {
             title: {
@@ -142,13 +119,102 @@
                 }
             }
         });
+    })
 
 
 
 
+    $.getJSON('./boss111.json', function (res) {
+        var salaryArr = [];
+        var companyArr = [];
 
+        res.forEach(item => {
+            var num = item.salary.match(/\d+/g);
+            var x = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
+            console.log(x)
+            companyArr.push(item.company)
+            salaryArr.push(x);
+        });
 
-
+        myChart2.setOption(option = {
+            title: {
+                text: 'boss直聘 web前端'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: {
+                data: companyArr
+            },
+            yAxis: {
+                splitLine: {
+                    show: false
+                }
+            },
+            toolbox: {
+                left: 'center',
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            dataZoom: [{
+                startValue: '2014-06-01'
+            }, {
+                type: 'inside'
+            }],
+            visualMap: {
+                top: 10,
+                right: 10,
+                pieces: [{
+                    gt: 0,
+                    lte: 5,
+                    color: '#096'
+                }, {
+                    gt: 5,
+                    lte: 10,
+                    color: '#ffde33'
+                }, {
+                    gt: 10,
+                    lte: 30,
+                    color: '#ff9933'
+                }, {
+                    gt: 30,
+                    lte: 40,
+                    color: '#cc0033'
+                },
+                {
+                    gt: 40,
+                    lte: 80,
+                    color: '#7e0023'
+                }],
+                outOfRange: {
+                    color: '#999'
+                }
+            },
+            series: {
+                name: '平均招聘薪资',
+                type: 'line',
+                data: salaryArr,
+                markLine: {
+                    silent: true,
+                    data: [{
+                        yAxis: 50
+                    }, {
+                        yAxis: 100
+                    }, {
+                        yAxis: 150
+                    }, {
+                        yAxis: 200
+                    }, {
+                        yAxis: 300
+                    }]
+                }
+            }
+        });
     })
 
 
