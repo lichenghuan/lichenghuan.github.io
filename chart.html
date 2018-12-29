@@ -21,11 +21,20 @@
 </head>
 
 <body>
-    <p class='title'>JAVA <span class="t1"></span></p>
+    <p class='title'>web前端 <span class="t1"></span></p>
     <div id="chart" style="height:400px;"></div>
 
-    <p class='title'>web前端 <span class="t2"></span></p>
+    <p class='title'>JAVA <span class="t2"></span></p>
     <div id="chart2" style="height:400px;"></div>
+
+    <p class='title'>php <span class="t3"></span></p>
+    <div id="chart3" style="height:400px;"></div>
+
+    <p class='title'>python <span class="t4"></span></p>
+    <div id="chart4" style="height:400px;"></div>
+
+    <p class='title'>node <span class="t5"></span></p>
+    <div id="chart5" style="height:400px;"></div>
 
 </body>
 
@@ -35,230 +44,140 @@
 <script>
 
     // 初始化图表标签
-    var myChart = echarts.init(document.getElementById('chart'));
 
-    var myChart2 = echarts.init(document.getElementById('chart2'));
+    chart({ jsonRoute: './jsonData/web.json', avgElement: $('.t1'), ChartId: 'chart' })
 
-    $.getJSON('./boss.json', function (res) {
+    chart({ jsonRoute: './jsonData/JAVA.json', avgElement: $('.t2'), ChartId: 'chart2' })
 
-        var totalSalary = 0;
-        res.map((item) => {
-            var num = item.salary.match(/\d+/g);
-            var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
-            totalSalary += salary;
-        })
-        $('.t1').text(`(总平均招聘工资：${(totalSalary / res.length).toFixed(2)}K)`)
+    chart({ jsonRoute: './jsonData/php.json', avgElement: $('.t3'), ChartId: 'chart3' })
 
-        myChart.setOption(option = {
-            formatter: function (fmArr) {
-                var fData = {};
-                var relVal = "";
-                res.filter((item) => {
-                    var num = item.salary.match(/\d+/g);
-                    var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
-                    if (item.company == fmArr[0].name && salary == fmArr[0].data) {
-                        fData = item;
-                    }
-                })
+    chart({ jsonRoute: './jsonData/python.json', avgElement: $('.t4'), ChartId: 'chart4' })
 
-                relVal = `公司名称：${fData.company}<br/>
-                        任务职位：${fData.position}<br/>
-                        公司信息：${fData.companyInfo[0]}|${fData.companyInfo[1]}|${fData.companyInfo[2]}<br/>
-                        要求年限：${fData.primaryInfo[1]}<br/>
-                        学历要求：${fData.primaryInfo[2]}<br/>
-                        工资区间：${fData.salary}<br/>
-                        办公地点：${fData.primaryInfo[0]}<br/>`
+    chart({ jsonRoute: './jsonData/node.json', avgElement: $('.t5'), ChartId: 'chart5' })
 
-                return relVal;
-            },
-            tooltip: {
-                trigger: 'axis'
-            },
-            xAxis: {
-                data: res.map((item) => item.company)
-            },
-            yAxis: {
-                splitLine: {
-                    show: false
-                }
-            },
-            toolbox: {
-                left: 'center',
-                feature: {
-                    dataZoom: {
-                        yAxisIndex: 'none'
-                    },
-                    restore: {},
-                    saveAsImage: {}
-                }
-            },
-            dataZoom: [{
-                startValue: '2014-06-01'
-            }, {
-                type: 'inside'
-            }],
-            visualMap: {
-                top: 10,
-                right: 10,
-                pieces: [{
-                    gt: 0,
-                    lte: 5,
-                    color: '#096'
-                }, {
-                    gt: 5,
-                    lte: 10,
-                    color: '#ffde33'
-                }, {
-                    gt: 10,
-                    lte: 30,
-                    color: '#ff9933'
-                }, {
-                    gt: 30,
-                    lte: 40,
-                    color: '#cc0033'
+
+    /**
+       * 
+       * 
+       * 
+      */
+
+
+
+    function chart(params) {
+
+        var myChart = echarts.init(document.getElementById(params.ChartId));
+
+        $.getJSON(params.jsonRoute, function (res) {
+            var totalSalary = 0;
+            res.map((item) => {
+                var num = item.salary.match(/\d+/g);
+                var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
+                totalSalary += salary;
+            })
+            params.avgElement.text(`(总平均招聘薪资：${(totalSalary / res.length).toFixed(2)}K)`)
+
+            myChart.setOption(option = {
+                formatter: function (fmArr) {
+                    var fData = {};
+                    var relVal = "";
+                    res.filter((item) => {
+                        var num = item.salary.match(/\d+/g);
+                        var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
+                        if (item.company == fmArr[0].name && salary == fmArr[0].data) {
+                            fData = item;
+                        }
+                    })
+
+                    relVal = `公司名称：${fData.company}<br/>
+                任务职位：${fData.position}<br/>
+                公司信息：${fData.companyInfo[0]}|${fData.companyInfo[1]}|${fData.companyInfo[2]}<br/>
+                要求年限：${fData.primaryInfo[1]}<br/>
+                学历要求：${fData.primaryInfo[2]}<br/>
+                薪资区间：${fData.salary}<br/>
+                办公地点：${fData.primaryInfo[0]}<br/>`
+
+                    return relVal;
                 },
-                {
-                    gt: 40,
-                    lte: 80,
-                    color: '#7e0023'
-                }],
-                outOfRange: {
-                    color: '#999'
-                }
-            },
-            series: {
-                name: '平均招聘薪资',
-                type: 'line',
-                data: res.map((item) => {
-                    var num = item.salary.match(/\d+/g);
-                    var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
-                    return salary;
-                }),
-                markLine: {
-                    silent: true,
-                    data: [{
-                        yAxis: 5
-                    }, {
-                        yAxis: 10
-                    }, {
-                        yAxis: 15
-                    }]
-                }
-            }
-        });
-
-    })
-
-
-    $.getJSON('./boss111.json', function (res) {
-
-        var totalSalary = 0;
-        res.map((item) => {
-            var num = item.salary.match(/\d+/g);
-            var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
-            totalSalary += salary;
-        })
-        $('.t2').text(`(总平均招聘工资：${(totalSalary / res.length).toFixed(2)}K)`)
-
-        myChart2.setOption(option = {
-            formatter: function (fmArr) {
-                var fData = {};
-                var relVal = "";
-                res.filter((item) => {
-                    var num = item.salary.match(/\d+/g);
-                    var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
-                    if (item.company == fmArr[0].name && salary == fmArr[0].data) {
-                        fData = item;
-                    }
-                })
-
-                relVal = `公司名称：${fData.company}<br/>
-                        任务职位：${fData.position}<br/>
-                        公司信息：${fData.companyInfo[0]}|${fData.companyInfo[1]}|${fData.companyInfo[2]}<br/>
-                        要求年限：${fData.primaryInfo[1]}<br/>
-                        学历要求：${fData.primaryInfo[2]}<br/>
-                        工资区间：${fData.salary}<br/>
-                        办公地点：${fData.primaryInfo[0]}<br/>`
-
-                return relVal;
-            },
-            tooltip: {
-                trigger: 'axis'
-            },
-            xAxis: {
-                data: res.map((item) => item.company)
-            },
-            yAxis: {
-                splitLine: {
-                    show: false
-                }
-            },
-            toolbox: {
-                left: 'center',
-                feature: {
-                    dataZoom: {
-                        yAxisIndex: 'none'
-                    },
-                    restore: {},
-                    saveAsImage: {}
-                }
-            },
-            dataZoom: [{
-                startValue: '2014-06-01'
-            }, {
-                type: 'inside'
-            }],
-            visualMap: {
-                top: 10,
-                right: 10,
-                pieces: [{
-                    gt: 0,
-                    lte: 5,
-                    color: '#096'
-                }, {
-                    gt: 5,
-                    lte: 10,
-                    color: '#ffde33'
-                }, {
-                    gt: 10,
-                    lte: 30,
-                    color: '#ff9933'
-                }, {
-                    gt: 30,
-                    lte: 40,
-                    color: '#cc0033'
+                tooltip: {
+                    trigger: 'axis'
                 },
-                {
-                    gt: 40,
-                    lte: 80,
-                    color: '#7e0023'
+                xAxis: {
+                    data: res.map((item) => item.company)
+                },
+                yAxis: {
+                    splitLine: {
+                        show: false
+                    }
+                },
+                toolbox: {
+                    left: 'center',
+                    feature: {
+                        dataZoom: {
+                            yAxisIndex: 'none'
+                        },
+                        restore: {},
+                        saveAsImage: {}
+                    }
+                },
+                dataZoom: [{
+                    startValue: '2014-06-01'
+                }, {
+                    type: 'inside'
                 }],
-                outOfRange: {
-                    color: '#999'
-                }
-            },
-            series: {
-                name: '平均招聘薪资',
-                type: 'line',
-                data: res.map((item) => {
-                    var num = item.salary.match(/\d+/g);
-                    var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
-                    return salary;
-                }),
-                markLine: {
-                    silent: true,
-                    data: [{
-                        yAxis: 5
+                visualMap: {
+                    top: 10,
+                    right: 10,
+                    pieces: [{
+                        gt: 0,
+                        lte: 5,
+                        color: '#096'
                     }, {
-                        yAxis: 10
+                        gt: 5,
+                        lte: 10,
+                        color: '#ffde33'
                     }, {
-                        yAxis: 15
-                    }]
+                        gt: 10,
+                        lte: 30,
+                        color: '#ff9933'
+                    }, {
+                        gt: 30,
+                        lte: 40,
+                        color: '#cc0033'
+                    },
+                    {
+                        gt: 40,
+                        lte: 80,
+                        color: '#7e0023'
+                    }],
+                    outOfRange: {
+                        color: '#999'
+                    }
+                },
+                series: {
+                    name: '平均招聘薪资',
+                    type: 'line',
+                    data: res.map((item) => {
+                        var num = item.salary.match(/\d+/g);
+                        var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
+                        return salary;
+                    }),
+                    markLine: {
+                        silent: true,
+                        data: [{
+                            yAxis: 5
+                        }, {
+                            yAxis: 10
+                        }, {
+                            yAxis: 15
+                        }]
+                    }
                 }
-            }
-        });
+            });
 
-    })
+        })
+    }
+
 
 
 
