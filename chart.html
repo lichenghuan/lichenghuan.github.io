@@ -39,6 +39,9 @@
     <p class='title'>node <span class="t5"></span></p>
     <div id="chart5" style="height:400px;"></div>
 
+    <p class='title'>测试 <span class="t6"></span></p>
+    <div id="chart6" style="height:400px;"></div>
+
 </body>
 
 </html>
@@ -59,6 +62,8 @@
     chart({ jsonRoute: './jsonData/python.json', avgElement: $('.t4'), ChartId: 'chart4' })
 
     chart({ jsonRoute: './jsonData/node.json', avgElement: $('.t5'), ChartId: 'chart5' })
+
+    chart({ jsonRoute: './jsonData/cs.json', avgElement: $('.t6'), ChartId: 'chart6' })
 
     function chart(params) {
 
