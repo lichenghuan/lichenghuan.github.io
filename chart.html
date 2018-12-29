@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>图表</title>
+    <title>焕</title>
 </head>
 
 <body>
@@ -29,26 +29,44 @@
     var myChart2 = echarts.init(document.getElementById('chart2'));
 
     $.getJSON('./boss.json', function (res) {
+
         var salaryArr = [];
         var companyArr = [];
 
-        res.forEach(item => {
-            var num = item.salary.match(/\d+/g);
-            var x = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
-            console.log(x)
-            companyArr.push(item.company)
-            salaryArr.push(x);
-        });
+        res.map((item) => {
+            // console.log(item)
+        })
 
         myChart.setOption(option = {
             title: {
                 text: 'boss直聘 JAVA'
             },
+            formatter: function (fmArr) {
+                var fData = {};
+                var relVal = "";
+                res.filter((item) => {
+                    var num = item.salary.match(/\d+/g);
+                    var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
+                    if (item.company == fmArr[0].name && salary == fmArr[0].data) {
+                        fData = item;
+                    }
+                })
+
+                relVal = `公司名称：${fData.company}<br/>
+                        任务职位：${fData.position}<br/>
+                        公司信息：${fData.companyInfo[0]}|${fData.companyInfo[1]}|${fData.companyInfo[2]}<br/>
+                        要求年限：${fData.primaryInfo[1]}<br/>
+                        学历要求：${fData.primaryInfo[2]}<br/>
+                        工资区间：${fData.salary}<br/>
+                        办公地点：${fData.primaryInfo[0]}<br/>`
+
+                return relVal;
+            },
             tooltip: {
                 trigger: 'axis'
             },
             xAxis: {
-                data: companyArr
+                data: res.map((item) => item.company)
             },
             yAxis: {
                 splitLine: {
@@ -102,7 +120,11 @@
             series: {
                 name: '平均招聘薪资',
                 type: 'line',
-                data: salaryArr,
+                data: res.map((item) => {
+                    var num = item.salary.match(/\d+/g);
+                    var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
+                    return salary;
+                }),
                 markLine: {
                     silent: true,
                     data: [{
@@ -119,6 +141,7 @@
                 }
             }
         });
+
     })
 
 
@@ -131,7 +154,6 @@
         res.forEach(item => {
             var num = item.salary.match(/\d+/g);
             var x = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
-            console.log(x)
             companyArr.push(item.company)
             salaryArr.push(x);
         });
@@ -140,11 +162,32 @@
             title: {
                 text: 'boss直聘 web前端'
             },
+            formatter: function (fmArr) {
+                var fData = {};
+                var relVal = "";
+                res.filter((item) => {
+                    var num = item.salary.match(/\d+/g);
+                    var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
+                    if (item.company == fmArr[0].name && salary == fmArr[0].data) {
+                        fData = item;
+                    }
+                })
+
+                relVal = `公司名称：${fData.company}<br/>
+                        任务职位：${fData.position}<br/>
+                        公司信息：${fData.companyInfo[0]}|${fData.companyInfo[1]}|${fData.companyInfo[2]}<br/>
+                        要求年限：${fData.primaryInfo[1]}<br/>
+                        学历要求：${fData.primaryInfo[2]}<br/>
+                        工资区间：${fData.salary}<br/>
+                        办公地点：${fData.primaryInfo[0]}<br/>`
+
+                return relVal;
+            },
             tooltip: {
                 trigger: 'axis'
             },
             xAxis: {
-                data: companyArr
+                data: res.map((item) => item.company)
             },
             yAxis: {
                 splitLine: {
@@ -198,7 +241,11 @@
             series: {
                 name: '平均招聘薪资',
                 type: 'line',
-                data: salaryArr,
+                data: res.map((item) => {
+                    var num = item.salary.match(/\d+/g);
+                    var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
+                    return salary;
+                }),
                 markLine: {
                     silent: true,
                     data: [{
@@ -215,6 +262,7 @@
                 }
             }
         });
+
     })
 
 
