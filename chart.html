@@ -5,15 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>焕</title>
+    <title>boss直聘招聘信息</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+        }
+    </style>
 </head>
 
 <body>
-
+    <p class='title'>JAVA <span class="t1"></span></p>
     <div id="chart" style="height:400px;"></div>
 
-    </br>
-
+    <p class='title'>web前端 <span class="t2"></span></p>
     <div id="chart2" style="height:400px;"></div>
 
 </body>
@@ -30,17 +41,15 @@
 
     $.getJSON('./boss.json', function (res) {
 
-        var salaryArr = [];
-        var companyArr = [];
-
+        var totalSalary = 0;
         res.map((item) => {
-            // console.log(item)
+            var num = item.salary.match(/\d+/g);
+            var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
+            totalSalary += salary;
         })
+        $('.t1').text(`(总平均招聘工资：${(totalSalary / res.length).toFixed(2)}K)`)
 
         myChart.setOption(option = {
-            title: {
-                text: 'boss直聘 JAVA'
-            },
             formatter: function (fmArr) {
                 var fData = {};
                 var relVal = "";
@@ -145,23 +154,17 @@
     })
 
 
-
-
     $.getJSON('./boss111.json', function (res) {
-        var salaryArr = [];
-        var companyArr = [];
 
-        res.forEach(item => {
+        var totalSalary = 0;
+        res.map((item) => {
             var num = item.salary.match(/\d+/g);
-            var x = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
-            companyArr.push(item.company)
-            salaryArr.push(x);
-        });
+            var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
+            totalSalary += salary;
+        })
+        $('.t2').text(`(总平均招聘工资：${(totalSalary / res.length).toFixed(2)}K)`)
 
         myChart2.setOption(option = {
-            title: {
-                text: 'boss直聘 web前端'
-            },
             formatter: function (fmArr) {
                 var fData = {};
                 var relVal = "";
