@@ -21,8 +21,11 @@
 </head>
 
 <body>
-    <p class='title'>web前端 <span class="t1"></span></p>
+    <p class='title'>web前端（广州） <span class="t1"></span></p>
     <div id="chart" style="height:400px;"></div>
+
+    <p class='title'>web前端（深圳） <span class="t11"></span></p>
+    <div id="chart11" style="height:400px;"></div>
 
     <p class='title'>JAVA <span class="t2"></span></p>
     <div id="chart2" style="height:400px;"></div>
@@ -47,6 +50,8 @@
 
     chart({ jsonRoute: './jsonData/web.json', avgElement: $('.t1'), ChartId: 'chart' })
 
+    chart({ jsonRoute: './jsonData/web(sz).json', avgElement: $('.t11'), ChartId: 'chart11' })
+
     chart({ jsonRoute: './jsonData/java.json', avgElement: $('.t2'), ChartId: 'chart2' })
 
     chart({ jsonRoute: './jsonData/php.json', avgElement: $('.t3'), ChartId: 'chart3' })
@@ -54,15 +59,6 @@
     chart({ jsonRoute: './jsonData/python.json', avgElement: $('.t4'), ChartId: 'chart4' })
 
     chart({ jsonRoute: './jsonData/node.json', avgElement: $('.t5'), ChartId: 'chart5' })
-
-
-    /**
-       * 
-       * 
-       * 
-      */
-
-
 
     function chart(params) {
 
@@ -90,12 +86,12 @@
                     })
 
                     relVal = `公司名称：${fData.company}<br/>
-                任务职位：${fData.position}<br/>
-                公司信息：${fData.companyInfo[0]}|${fData.companyInfo[1]}|${fData.companyInfo[2]}<br/>
-                要求年限：${fData.primaryInfo[1]}<br/>
-                学历要求：${fData.primaryInfo[2]}<br/>
-                薪资区间：${fData.salary}<br/>
-                办公地点：${fData.primaryInfo[0]}<br/>`
+                              任务职位：${fData.position}<br/>
+                              公司信息：${fData.companyInfo[0]}|${fData.companyInfo[1]}|${fData.companyInfo[2]}<br/>
+                              工作年限：${fData.primaryInfo[1]}<br/>
+                              学历要求：${fData.primaryInfo[2]}<br/>
+                              薪资区间：${fData.salary}<br/>
+                              办公地点：${fData.primaryInfo[0]}<br/>`
 
                     return relVal;
                 },
