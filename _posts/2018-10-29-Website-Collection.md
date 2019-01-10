@@ -59,7 +59,7 @@ tags:
 | [logo在线生成](https://www.logosc.cn/)                       | 不是免费的；让你输入完成后会跳到生成logo的页面，但是会出现遮罩层弹窗要你微信登陆，这时候可以打开控制台，将遮罩层和弹窗元素delete，就可以查看生成好的logo了，还挺多的。 | ”免费的才是最贵的“               |
 | [标你妹啊](http://www.biaonimeia.com/login)                  | 一款自动化设计在线标注工具，仅支持psd文件                    |                                  |
 | [文字云](https://wordart.com/)                               | <img src='https://ws3.sinaimg.cn/large/005BYqpgly1fz0b8btj75j30j30k643l.jpg' style='width:100px;height:100px' /> | 可以上传图片                     |
-| [图片故障效果在线制作](https://photomosh.com/)               | <img src='https://ws3.sinaimg.cn/large/005BYqpgly1fz0bm1ngqzj31c00u0jyx.jpg' style='width:160px;height:100px' /><img src='https://ws3.sinaimg.cn/large/005BYqpgly1fz0bno92p0g30hs0b4kjn.jpg' style='width:160px;height:100px' /><br>左边是原图，右边是mosh过后的gif | 静态图片还可以生成动态的故障效果 |
+| [图片故障效果在线制作](https://photomosh.com/)               | <img src='https://ws3.sinaimg.cn/large/005BYqpgly1fz0bm1ngqzj31c00u0jyx.jpg' style='width:160px;height:100px；display: inline-block;margin-right:6px' /><img src='https://ws3.sinaimg.cn/large/005BYqpgly1fz0bno92p0g30hs0b4kjn.jpg' style='width:160px;height:100px;display: inline-block;' /><br>左边是原图，右边是mosh过后的gif | 静态图片还可以生成动态的故障效果 |
 | **其他**                                                     |                                                              |                                  |
 | [不会百度么](http://buhuibaidu.me/)                          | 不会百度么？                                                 |                                  |
 | [模拟黑客电脑界面](http://geektyper.com/)                    | 骗小学生必备装逼利器                                         |                                  |
