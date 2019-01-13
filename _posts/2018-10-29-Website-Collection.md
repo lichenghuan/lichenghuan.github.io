@@ -59,14 +59,15 @@ tags:
 | [logo在线生成](https://www.logosc.cn/)                       | 不是免费的；让你输入完成后会跳到生成logo的页面，但是会出现遮罩层弹窗要你微信登陆，这时候可以打开控制台，将遮罩层和弹窗元素delete，就可以查看生成好的logo了，还挺多的。 | ”免费的才是最贵的“               |
 | [标你妹啊](http://www.biaonimeia.com/login)                  | 一款自动化设计在线标注工具，仅支持psd文件                    |                                  |
 | [文字云](https://wordart.com/)                               | <img src='https://ws3.sinaimg.cn/large/005BYqpgly1fz0b8btj75j30j30k643l.jpg' style='width:100px;height:100px;display: inline-block;' /> | 可上传图片制作文字云，具体看官网 |
-| [图片故障效果在线制作](https://photomosh.com/)               | <img src='https://ws3.sinaimg.cn/large/005BYqpgly1fz0bm1ngqzj31c00u0jyx.jpg' style='width:160px;height:100px;display: inline-block;margin-right:6px' /><img src='https://ws3.sinaimg.cn/large/005BYqpgly1fz0bno92p0g30hs0b4kjn.jpg' style='width:160px;height:100px;display: inline-block;' /><br>左边是原图，右边是mosh过后的gif | 静态图片还可以生成动态的故障效果 |
+| [图片故障效果在线制作](https://photomosh.com/)               | <img src='https://ws3.sinaimg.cn/large/005BYqpgly1fz0bm1ngqzj31c00u0jyx.jpg' style='width:160px;height:100px;display: inline-block;margin-right:6px' /><img src='https://ws3.sinaimg.cn/large/005BYqpgly1fz0bno92p0g30hs0b4kjn.jpg' style='width:160px;height:100px;display: inline-block;' /><br>左边是原图，右边是mosh过后的gif | 静态图片可以生成动态的故障效果   |
 | **其他**                                                     |                                                              |                                  |
+| [**stackblitz**](https://stackblitz.com)                     | 一款在线 IDE，主要面向 Web 开发者，几乎与VS Code一摸一样，方便易用；可用GitHub账号登陆并保存项目，也支持本地项目运行，拖拽上去就行。自带npm！ | **在线版VSCode**                 |
+| [codepen](https://codepen.io/)                               | 可在线编辑、运行html,css,javascript的网站。                  |                                  |
 | [不会百度么](http://buhuibaidu.me/)                          | 不会百度么？                                                 |                                  |
 | [模拟黑客电脑界面](http://geektyper.com/)                    | 骗小学生必备装逼利器                                         |                                  |
 | [GitHub秘籍（中文版）](https://www.kancloud.cn/thinkphp/github-tips/37891) | GitHub使用指南。                                             |                                  |
 | [特殊符号+表情大全](http://cn.piliapp.com/facebook-symbols/) | Facebook表情**，**emoji，特殊符号等尽在其中。                |                                  |
 | [I remember](http://i-remember.fr/en/memory/51414)           | 一个关于回忆的网站，所有的光斑都是用户登录网站留下的回忆，就像浩瀚银河，通过鼠标，可以在回忆的银河中穿行，滚动鼠标滑轮，可以逐渐缩小搜索范围 |                                  |
-| [codepen](https://codepen.io/)                               | 可在线编辑、运行html,css,javascript的网站。                  |                                  |
 | [声享](https://ppt.baomitu.com/)                             | 在线制作PPT                                                  |                                  |
 | [恶意软件分析网站](https://www.virustotal.com/zh-cn/)        | VirusTotal是一个免费的病毒，蠕虫，木马和各种恶意软件分析服务。可以针对可疑文件和网址进行快速检测。 |                                  |
 | [翻墙](https://github.com/search?q=%E7%BF%BB%E5%A2%99)       | gayhub搜翻墙一大把                                           |                                  |
