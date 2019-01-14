@@ -10,7 +10,6 @@ layout: default
 	<meta charset='UTF-8'>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 	<title>图床上传</title>
-	<link rel="stylesheet" href="../css/toast.css">
 	<link rel="stylesheet" href="../css/style.css">
 
 	<style>
@@ -70,8 +69,6 @@ layout: default
 
 
 </body>
-
-<script src="../js/toast.js"></script>
 <script>
 
 	// $(function () {
@@ -91,7 +88,6 @@ layout: default
 	}
 
 
-
 	function Toaster(title, msg, type) {
 		$.Toasters(title, msg, type, {
 			stack: true,
@@ -104,6 +100,7 @@ layout: default
 			rtl: false,
 		});
 	}
+	
 	function sc(type) {
 		if (!type) { return false; }
 		var animateimg = $("#file").val();

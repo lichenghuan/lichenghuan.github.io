@@ -46,86 +46,32 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ '/css/hux-blog.min.css' | prepend: site.baseurl }}">
     <!-- Custom Fonts -->
-    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Hux change font-awesome CDN to qiniu -->
+    <!-- font-awesome CDN to qiniu -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
-    <!-- ga & ba script hoook -->
-    <style>
-        /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 8px;
-            background-color: #F5F5F5;
-        }
+    <!-- toast提示样式 -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/toast.css">
+    <!-- 全局滚动条样式 -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/scrollbar.css">
+    <!-- 剪切板样式 -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/myClipboard.css">
 
-        /*定义滚动条轨道 内阴影+圆角*/
-        ::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(63, 55, 45, 0.3);
-            /* border-radius: 2px; */
-            background-color: #F5F5F5;
-        }
-
-        /*定义滑块 内阴影+圆角*/
-        ::-webkit-scrollbar-thumb {
-            /* border-radius: 2px; */
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-            background-color: #555;
-        }
-
-        #h_go_top {
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 0, 0, 0.6);
-            position: fixed;
-            bottom: 50px;
-            right: 20px;
-            border-radius: 50%;
-            z-index: 999999;
-            color: #fff;
-            text-align: center;
-            /* line-height: 50px; */
-            font-size: 56px;
-            display: none;
-            user-select: none;
-            cursor: pointer;
-            font-weight: 600;
-            vertical-align: middle;
-        }
-
-        #h_go_top>i {
-            display: inline-block;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        #h_go_top:hover {
-            background: #009688;
-        }
-
-        @media all and (max-width: 850px) {
-            #h_go_top {
-                width: 36px;
-                height: 36px;
-            }
-        }
-    </style>
 </head>
 
 
 <body>
     <div id='h_go_top'><i class='fa fa-arrow-circle-o-up'></i></div>
 </body>
+
+
 <!-- jQuery -->
 <script src="{{ '/js/jquery.min.js' | prepend: site.baseurl }}"></script>
+<!-- toast提示弹窗 -->
+<script src="{{ '/js/toast.js' | prepend: site.baseurl }}"></script>
+<!-- 剪切板 -->
+<script src="{{ '/js/clipboard.min.js' | prepend: site.baseurl }}"></script>
+<script src="{{ '/js/myClipboard.js' | prepend: site.baseurl }}"></script>
 
 <script>
 
