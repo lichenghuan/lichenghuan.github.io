@@ -59,6 +59,10 @@
 		.nice-select ul li.on{
       background-color: #f1f1f1;
     }
+
+    .ovhidden{
+      overflow: hidden;
+    }
  
 
 </style>
@@ -95,6 +99,7 @@
   $(function () {
     $(".nice-select").click(function (e) {
       $(this).find("ul").show();
+      $('body').addClass('ovhidden');
       e.stopPropagation();
     });
 
@@ -112,11 +117,13 @@
       }
       $(".nice-select").find("input").val(val);
       $(".nice-select").find("ul").hide();
+      $('body').removeClass('ovhidden');
       e.stopPropagation();
     });
 
     $(document).click(function () {
       $(".nice-select").find("ul").hide();
+      $('body').removeClass('ovhidden');
     });
 
     $("#customerId").on("input porpertychange", debounce(function () {
@@ -127,20 +134,23 @@
         var contentValue = $(this).text();
         if (contentValue.toLowerCase().indexOf(strValue.toLowerCase()) < 0) {
           $(this).hide();
+          $('body').removeClass('ovhidden');
           count++;
         } else {
           $(this).show();
+          $('body').addClass('ovhidden');
         }
         if (count == (i + 1)) {
           $(".nice-select").find("ul").hide();
+          $('body').removeClass('ovhidden');
         } else {
           $(".nice-select").find("ul").show();
+          $('body').addClass('ovhidden');
         }
       });
 
     }, 300));
   });
-
 
 
   //封装后的防抖函数
