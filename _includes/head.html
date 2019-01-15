@@ -35,6 +35,8 @@
 
     <title>{% if page.title %}{{ page.title }} - {{ site.SEOTitle }}{% else %}{{ site.SEOTitle }}{% endif %}</title>
 
+
+
     <!-- Web App Manifest -->
     <link rel="manifest" href="{{ site.baseurl }}/pwa/manifest.json">
     <!-- Favicon -->
@@ -45,17 +47,27 @@
     <link rel="stylesheet" href="{{ '/css/bootstrap.min.css' | prepend: site.baseurl }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ '/css/hux-blog.min.css' | prepend: site.baseurl }}">
-    <!-- Custom Fonts -->
-    <!-- font-awesome CDN to qiniu -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
 
     <!-- toast提示样式 -->
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/toast.css">
+    <link href="{{ site.baseurl }}/css/toast.css" rel="stylesheet" type="text/css">
     <!-- 全局滚动条样式 -->
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/scrollbar.css">
+    <link href="{{ site.baseurl }}/css/scrollbar.css" rel="stylesheet" type="text/css">
     <!-- 剪切板样式 -->
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/myClipboard.css">
+    <link href="{{ site.baseurl }}/css/myClipboard.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
 
 </head>
 
@@ -63,7 +75,6 @@
 <body>
     <div id='h_go_top'><i class='fa fa-arrow-circle-o-up'></i></div>
 </body>
-
 
 <!-- jQuery -->
 <script src="{{ '/js/jquery.min.js' | prepend: site.baseurl }}"></script>

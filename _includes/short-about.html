@@ -1,9 +1,73 @@
-<section class="visible-md visible-lg" style='border: none'>
+<style>
+  .nice-select{
+        position: relative;
+        top: -10px;
+	  		margin: 0 auto;
+	  		box-shadow: 0 3px 5px #999;
+	  		-webkit-border-radius: 3px;
+	  		-moz-border-radius: 3px;
+	  		border-radius: 3px;
+	  	}
+    .nice-select input{
+			outline: none;
+			cursor: pointer;
+			width: 100%;
+			height: 28px;
+			font-size: 14px;
+			border: 1px solid #000;
+			background: url(image/icon.png) no-repeat scroll right center transparent;
+			background-position: 96% 50%;
+			padding: 0 0 0 5px;
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+			position: absolute;
+			line-height: 1.8em;
+    }
+    
+    .nice-select input::-webkit-input-placeholder{
+      font-size: 14px;
+      line-height: 28px;
+      color: #bfbfbf;
+    }
+ 
+		.nice-select ul{
+			display: none;
+			border: 1px solid #d5d5d5;
+			width: 100%;
+			position: absolute;
+			top: 28.5px;
+			overflow: hidden;
+			background-color: #fff;
+			max-height: 250px;
+			overflow-y: auto;
+			border-top: 0;
+      z-index:999999;
+      padding: 0;
+		}
+		
+		.nice-select ul li{
+      height: 30px;
+      font-size: 14px;
+			line-height: 2em;
+			overflow: hidden;
+			cursor: pointer;
+      border-top: 1px solid #d5d5d5;
+      padding: 0 0 0 5px;
+    }
+
+		.nice-select ul li.on{
+      background-color: #e0e0e0;
+    }
+ 
+
+</style>
+<section class="visible-md visible-lg" style='border: none;position: relative;'>
   <!-- <hr> -->
   <h5><a href="{{'/about/' | prepend: site.baseurl }}">ABOUT ME</a></h5>
   <div class="short-about">
     {% if site.sidebar-avatar %}
-    <img src="{{site.sidebar-avatar}}" />
+    <img src="{{site.sidebar-avatar}}" style="width:100%;height:100%;" />
     {% endif %}
     {% if site.sidebar-about-description %}
     <p>{{site.sidebar-about-description}}</p>
@@ -12,5 +76,81 @@
     <!-- {% include sns-links.html %} -->
   </div>
 
-  <div style="height: 1px;background:#eeeeee;margin:22px 0;"></div>
+  <div class="nice-select">
+    <input id="customerId" placeholder='请输入文章名' type="text" />
+    <ul id="list">
+      {% for posts in site.posts %}
+      <a href="{{ posts.url | prepend: site.baseurl }}">
+        <li>{{ posts.title }}</li>
+      </a>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div style="height: 1px;background:#eeeeee;margin:52px 0 12px 0;"></div>
+
 </section>
+<script type="text/javascript">
+  $(function () {
+    $(".nice-select").click(function (e) {
+      $(this).find("ul").show();
+      e.stopPropagation();
+    });
+
+    $('#list').delegate('li', 'mouseover mouseout', function (e) {
+      $(this).toggleClass("on");
+      e.stopPropagation();
+    });
+
+    $('#list').delegate('li', 'click', function (e) {
+      var val = $(this).text();
+      var showContent = $('input[name="showContent"]:checked').val();
+      if (showContent == "portion") {
+        if (val.indexOf('--') != -1)
+          val = val.substring(0, val.indexOf('--'));
+      }
+      $(".nice-select").find("input").val(val);
+      $(".nice-select").find("ul").hide();
+      e.stopPropagation();
+    });
+
+    $(document).click(function () {
+      $(".nice-select").find("ul").hide();
+    });
+
+  });
+
+  $("#customerId").on("input porpertychange", debounce(function () {
+    var strValue = $(this).val();
+    var count = 0;
+
+    $(".nice-select ul li").each(function (i) {
+      var contentValue = $(this).text();
+      if (contentValue.toLowerCase().indexOf(strValue.toLowerCase()) < 0) {
+        $(this).hide();
+        count++;
+      } else {
+        $(this).show();
+      }
+      if (count == (i + 1)) {
+        $(".nice-select").find("ul").hide();
+      } else {
+        $(".nice-select").find("ul").show();
+      }
+    });
+
+  }, 300));
+
+  //封装后的防抖函数
+  function debounce(fn, wait) {
+    var timeout;//需要一个外部变量，为增强封装，所以使用闭包
+    return function () {
+      var _this = this;
+      var _arguments = arguments;//arguments中存着e
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+        fn.apply(_this, _arguments); //改变this指向
+      }, wait);
+    }
+  }
+</script>
