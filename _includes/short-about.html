@@ -57,7 +57,7 @@
     }
 
 		.nice-select ul li.on{
-      background-color: #e0e0e0;
+      background-color: #f1f1f1;
     }
  
 
@@ -91,6 +91,7 @@
 
 </section>
 <script type="text/javascript">
+
   $(function () {
     $(".nice-select").click(function (e) {
       $(this).find("ul").show();
@@ -118,28 +119,29 @@
       $(".nice-select").find("ul").hide();
     });
 
+    $("#customerId").on("input porpertychange", debounce(function () {
+      var strValue = $(this).val();
+      var count = 0;
+
+      $(".nice-select ul li").each(function (i) {
+        var contentValue = $(this).text();
+        if (contentValue.toLowerCase().indexOf(strValue.toLowerCase()) < 0) {
+          $(this).hide();
+          count++;
+        } else {
+          $(this).show();
+        }
+        if (count == (i + 1)) {
+          $(".nice-select").find("ul").hide();
+        } else {
+          $(".nice-select").find("ul").show();
+        }
+      });
+
+    }, 300));
   });
 
-  $("#customerId").on("input porpertychange", debounce(function () {
-    var strValue = $(this).val();
-    var count = 0;
 
-    $(".nice-select ul li").each(function (i) {
-      var contentValue = $(this).text();
-      if (contentValue.toLowerCase().indexOf(strValue.toLowerCase()) < 0) {
-        $(this).hide();
-        count++;
-      } else {
-        $(this).show();
-      }
-      if (count == (i + 1)) {
-        $(".nice-select").find("ul").hide();
-      } else {
-        $(".nice-select").find("ul").show();
-      }
-    });
-
-  }, 300));
 
   //封装后的防抖函数
   function debounce(fn, wait) {
