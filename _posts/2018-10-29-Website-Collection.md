@@ -10,38 +10,17 @@ tags:
     - 收藏
 ---
 
-
-### Javascript
-
-[jquery插件库](http://www.jq22.com/)：jq22，也有很多css，canvas效果示例。
-
-[awesome](https://www.awesomes.cn/rank?sort=hot)：前端技术 TOP 100。
-
-[Lodash](https://www.lodashjs.com/)：通过降低 **array、number、objects、string** 等等的使用难度从而让 JavaScript 变得更简单。（不能太依靠这些工具，可以看下源码）
-
-
-
-
-### CSS
-
-[Can I Use ?](https://caniuse.com/) ：为前端开发人员定制的一个查询CSS、Js在各个主流浏览器中的特性和兼容性的网站。
-
-
-
-### 面试相关：
-
-[冷熊简历](http://cv.ftqq.com/#)：运行在浏览器里边的 Markdown 编辑器，可以一键生成 PDF ，生成**简历**。
-
-[markyun前端开发面试题](https://github.com/markyun/My-blog/blob/master/Front-end-Developer-Questions/Questions-and-Answers/README.md)
-
-
-
-------
-
-
-
 |                                                              | 描述                                                         | 备注                             |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------- |
+| **Javascript**                                               |                                                              |                                  |
+| [jquery插件库](http://www.jq22.com/)                         | jq22，也有很多css，canvas效果示例。                          |                                  |
+| [awesome](https://www.awesomes.cn/rank?sort=hot)             | 前端技术 TOP 100。                                           |                                  |
+| [Lodash](https://www.lodashjs.com/)                          | 通过降低 **array、number、objects、string** 等等的使用难度从而让 JavaScript 变得更简单。（不能太依靠这些工具，可以看下源码） |                                  |
+| **CSS**                                                      |                                                              |                                  |
+| [Can I Use ?](https://caniuse.com/)                          | 为前端开发人员定制的一个查询CSS、Js在各个主流浏览器中的特性和兼容性的网站。 |                                  |
+| **面试相关**                                                 |                                                              |                                  |
+| [冷熊简历](http://cv.ftqq.com/#)                             | 运行在浏览器里边的 Markdown 编辑器，可以一键生成 PDF ，生成**简历**。 |                                  |
+| [markyun前端开发面试题](https://github.com/markyun/My-blog/blob/master/Front-end-Developer-Questions/Questions-and-Answers/README.md) |                                                              |                                  |
 | **壁纸**                                                     |                                                              |                                  |
 | [wallhaven](https://alpha.wallhaven.cc/random)               | 高清无水印壁纸**，**免费，有更多尺寸可选！！！               | 目前在用这个                     |
 | [500px](https://500px.me/community/discover?t=rating)        | 高清无水印壁纸**，**免费。                                   |                                  |
