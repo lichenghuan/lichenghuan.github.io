@@ -14,9 +14,9 @@ tags:
 
 ##### [Snipaste](https://zh.snipaste.com/index.html)
 
-> 截屏工具，比较突出的一点是可以贴图固定在屏幕上，还有取色器功能。
+> 截屏工具，比较突出的一点是可以贴图固定在屏幕上，也可以贴动态图（复制图片然后点击F3），还有取色器功能。
 >
-> 比较钟意屏幕贴图和取色器功能。 配合剪贴板工具 1Clipboard 使用，爽上天。
+> 比较钟意屏幕贴图和取色器功能。 配合剪贴板工具 1Clipboard 使用，怎一个爽字了得。
 
 ![Snipaste](https://i.loli.net/2018/10/29/5bd66e2ec2be4.gif)
 
@@ -131,7 +131,7 @@ QuickLook 支持以下格式：
 
 ##### [Postman](https://www.getpostman.com/)
 
-> 测试http请求，前后端开发人员利器，用过都说好。
+> 测试http请求，前后端开发人员利器，用过都说nice。
 
 ![](https://i.loli.net/2018/10/29/5bd683d8d9cf4.jpg)
 
