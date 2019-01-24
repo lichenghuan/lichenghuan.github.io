@@ -1,15 +1,3 @@
----
-layout:     post
-title:      "网站收藏"
-subtitle:   " \"Website Collection\""
-date:       2018-10-29 15:00:00
-author:     "huan"
-header-img: "img/post-bg-2015.jpg"
-catalog: true
-tags:
-    - 收藏
-
----
 
 |                                                              | 描述                                                         | 备注                             |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------- |
@@ -60,10 +48,6 @@ tags:
 | [掘金2018上优质文章](https://juejin.im/post/5b3adfe2e51d4555b17e85df) | 稀土掘金                                                     |                                  |
 | [朱邦邦的JavaScript学习笔记](https://github.com/zhubangbang/zhubangbang-javascript-notes) | 别人的学习笔记                                               |                                  |
 | [前端文档汇总](https://github.com/mgbq/front-end-Doc)        | 含代码规范、开发流程、知识分享,持续更新                      |                                  |
-
-
-
-
 
 
 

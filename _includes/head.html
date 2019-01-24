@@ -79,36 +79,14 @@
 <script src="{{ '/js/jquery.min.js' | prepend: site.baseurl }}"></script>
 <!-- toast提示弹窗 -->
 <script src="{{ '/js/toast.js' | prepend: site.baseurl }}"></script>
+<!-- 返回顶部 -->
+<script src="{{ '/js/goToTop.js' | prepend: site.baseurl }}"></script>
 <!-- 剪切板 -->
 <script src="{{ '/js/clipboard.min.js' | prepend: site.baseurl }}"></script>
 <script src="{{ '/js/myClipboard.js' | prepend: site.baseurl }}"></script>
 
 <script>
 
-    $(function () {
-        // jQuery返回顶部插件
-        jQuery.fn.goToTop = function () {
-            $('#h_go_top').hide();
-            if ($(window).scrollTop() < 0) {
-                $('#h_go_top').hide();
-            }
-            // 窗口滚动时，判断当前窗口滚动距离
-            $(window).scroll(function () {
-                $(this).scrollTop() > 1 ? $('#h_go_top').fadeIn() : $('#h_go_top').fadeOut();
-            });
-
-            // 给这个按钮绑定一个click事件
-            this.bind('click', function () {
-                $('html ,body').stop().animate({ scrollTop: 0 }, 500);
-                return false;
-            });
-        };
-
-        //调用插件
-        $(function () {
-            $('#h_go_top').goToTop();
-        });
-    })
 
 
 </script>

@@ -1,0 +1,23 @@
+---
+layout: page
+title: "Collection"
+description: "网站收藏"
+header-img: "img/ArticleBg/fire.jpg"
+multilingual: true
+---
+
+<br>
+<div class="zh post-container">
+    {% capture collection_zh %} {% include collection/Website-Collection.md %}{% endcapture %}
+    {{ collection_zh | markdownify }}
+</div>
+
+<script>
+    $(function () {
+        $("tbody a").each(function () {
+            if (this.target == '') {
+                $(this).attr("target", "_blank")
+            }
+        });
+    })
+</script>
