@@ -16,5 +16,17 @@ tags:
 
 
 
-
+```javascript
+// 1. 最简单的柯里化
+// sum函数接受三个参数，并返回求和结果
+var sum = function(a,b,c) {
+    return a+b+c;
+}
+// 最简单柯里化的sum函数
+var sum_curry = function(a){
+    return function(b,c){
+        return a+b+c;
+    }
+}
+```
 
