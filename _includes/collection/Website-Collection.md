@@ -51,6 +51,7 @@
 | [掘金2018上优质文章](https://juejin.im/post/5b3adfe2e51d4555b17e85df) | 稀土掘金                                                     |                                  |
 | [朱邦邦的JavaScript学习笔记](https://github.com/zhubangbang/zhubangbang-javascript-notes) | 别人的学习笔记                                               |                                  |
 | [前端文档汇总](https://github.com/mgbq/front-end-Doc)        | 含代码规范、开发流程、知识分享,持续更新                      |                                  |
+| [H5案例分享](https://www.h5anli.com/)                        | 各种H5效果：一镜到底、视差动画、x轴运动等。                  |                                  |
 
 
 
