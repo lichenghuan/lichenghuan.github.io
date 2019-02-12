@@ -30,6 +30,7 @@
 | [标你妹啊](http://www.biaonimeia.com/login)                  | 一款自动化设计在线标注工具，仅支持psd文件                    |                                  |
 | [文字云](https://wordart.com/)                               | <img src='https://ws3.sinaimg.cn/large/005BYqpgly1fz0b8btj75j30j30k643l.jpg' style='width:100px;height:100px;display: inline-block;' /> | 可上传图片制作文字云，具体看官网 |
 | [图片故障效果在线制作](https://photomosh.com/)               | <img src='https://ws3.sinaimg.cn/large/005BYqpgly1fz0bm1ngqzj31c00u0jyx.jpg' style='width:160px;height:100px;display: inline-block;margin-right:6px' /><img src='https://ws3.sinaimg.cn/large/005BYqpgly1fz0bno92p0g30hs0b4kjn.jpg' style='width:160px;height:100px;display: inline-block;' /><br>左边是原图，右边是mosh过后的gif | 静态图片可以生成动态的故障效果   |
+| [觅元素](http://www.51yuansu.com/)                           | 免抠素材，QQ登录，一天有5次免费下载机会，素材质量很高        |                                  |
 | **其他**                                                     |                                                              |                                  |
 | [**stackblitz**](https://stackblitz.com)                     | 一款在线 IDE，主要面向 Web 开发者，几乎与VS Code一摸一样，方便易用；可用GitHub账号登陆并保存项目，也支持本地项目运行，拖拽上去就行。自带npm！ | **在线版VSCode**                 |
 | [codepen](https://codepen.io/)                               | 可在线编辑、运行html,css,javascript的网站。                  |                                  |
@@ -41,6 +42,7 @@
 | [声享](https://ppt.baomitu.com/)                             | 在线制作PPT                                                  |                                  |
 | [恶意软件分析网站](https://www.virustotal.com/zh-cn/)        | VirusTotal是一个免费的病毒，蠕虫，木马和各种恶意软件分析服务。可以针对可疑文件和网址进行快速检测。 |                                  |
 | [现实君](http://tool.uixsj.cn/)                              | 比较有趣的网站，很多令人眼前一亮的功能，虽然有些不是原创     |                                  |
+| [在线随机颜色](https://colorspark.app/)                      | 再也不用纠结选色了                                           |                                  |
 | [翻墙](https://github.com/search?q=%E7%BF%BB%E5%A2%99)       | gayhub搜翻墙一大把                                           |                                  |
 | **前端收藏**                                                 |                                                              |                                  |
 | [Love2.io](https://love2.io)                                 | 一个全新的开源技术文档分享平台，致力于提供用户更优雅的阅读和写作体验。技术改变世界，用文档传播。 |                                  |

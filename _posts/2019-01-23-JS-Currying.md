@@ -22,11 +22,16 @@ tags:
 var sum = function(a,b,c) {
     return a+b+c;
 }
-// 最简单柯里化的sum函数
+sum(1,2,3);
+
+// 简单柯里化的sum函数
 var sum_curry = function(a){
     return function(b,c){
         return a+b+c;
     }
 }
+
+// 使用ES6的箭头函数实现
+let sum_currying= x => y => z => x+y+z;
 ```
 
