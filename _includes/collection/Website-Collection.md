@@ -7,6 +7,7 @@
 | [jquery插件库](http://www.jq22.com/)                         | jq22，也有很多css，canvas效果示例。                          |                                  |
 | [awesome](https://www.awesomes.cn/rank?sort=hot)             | 前端技术 TOP 100。                                           |                                  |
 | [Lodash](https://www.lodashjs.com/)                          | 通过降低 **array、number、objects、string** 等等的使用难度从而让 JavaScript 变得更简单。（不能太依靠这些工具，可以看下源码） |                                  |
+| [tweenmax](https://www.tweenmax.com.cn/)                     | **TweenMax**.js是动画插件库GSAP的核心文件，加载后即可使用四个主要核心类TweenLite、TweenMax、TimelineLite、TimelineMax和一些其他辅助动画插件。可对一个或多个物件进行动画，或添加至时间轴中设计复杂的影片。 |                                  |
 | **CSS**                                                      |                                                              |                                  |
 | [Can I Use ?](https://caniuse.com/)                          | 为前端开发人员定制的一个查询CSS、Js在各个主流浏览器中的特性和兼容性的网站。 |                                  |
 | **面试相关**                                                 |                                                              |                                  |
