@@ -4,10 +4,10 @@ title:      "移动H5前端调试面板"
 subtitle:   ""
 date:       2019-03-06 12:00:00
 author:     "huan"
-header-img: "img/ArticleBg/post-bg-js-version.jpg"
+header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
-    - JavaScript
+    - 移动端H5
 
 ---
 
@@ -17,9 +17,9 @@ tags:
 
 
 
-###1.[vConsole](https://github.com/Tencent/vConsole/blob/dev/doc/tutorial_CN.md)
+### 1.[vConsole](https://github.com/Tencent/vConsole/blob/dev/doc/tutorial_CN.md)
 
-#### npm安装
+##### npm安装
 
 - 首先安装插件：   	`npm install vconsole -D`
 
@@ -29,7 +29,7 @@ tags:
 
 - 即可愉快玩耍
 
-#### CDN引入
+##### CDN引入
 
 ```html
 <script src="https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script>
@@ -38,15 +38,15 @@ tags:
 
 [vConsole各版本CDN地址](https://www.bootcdn.cn/vConsole/)
 
-#### 如何使用
+##### 如何使用
 
 页面右下角会出现一个vConsole绿色按钮，即表示成功引入，点击该按钮，会弹出与谷歌浏览器的调试面板类似的弹窗，且用法一致。
 
 ![3.gif](https://i.loli.net/2019/03/05/5c7e9a75e0644.gif)
 
-###2.[Eruda](https://github.com/liriliri/eruda/blob/master/doc/README_CN.md)
+### 2.[Eruda](https://github.com/liriliri/eruda/blob/master/doc/README_CN.md)
 
-####npm安装
+##### npm安装
 
 - 首先安装插件：		`npm install eruda -D`
 
@@ -57,7 +57,7 @@ tags:
   <script>eruda.init();</script>
   ```
 
-#### CDN引入
+##### CDN引入
 
 ```html
 <script src="//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"></script>
@@ -75,8 +75,8 @@ js文件对于移动端来说略重（gzip后大概100kb）。建议通过url参
 })();
 ```
 
-#### 如何使用
+##### 如何使用
 
-个人感觉风格比较好看，而且功能也比vConsole多一点，具体使用请看官网
+个人感觉风格比较好看，而且功能也比vConsole多一点，具体使用请看官网。
 
 ![2.gif](https://i.loli.net/2019/03/05/5c7e9a14a44f7.gif)
