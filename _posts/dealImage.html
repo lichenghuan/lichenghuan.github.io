@@ -65,6 +65,10 @@
         .img {
             width: 500px;
         }
+
+        .tBox{
+            display: inline-block;
+        }
     </style>
 </head>
 
@@ -73,14 +77,14 @@
         <span>点击上传图片</span>
         <input type="file" accept="image/*" id="file" value="" />
     </div>
-    <div class="BigBox">
+    <div class="BigBox tBox">
         <div>
             <img src="" alt="" class="img img1"> <!-- 原图 -->
             <img src="" alt="" class="img img2"> <!-- 压缩后的图 -->
         </div>
     </div>
 
-    <div>
+    <div class="tBox">
         <div>左边为原图，右边为压缩过后的图片</div>
         <div class="p1"></div>
         <div class="p2"></div>
