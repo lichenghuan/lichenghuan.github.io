@@ -46,7 +46,7 @@ tags:
 ​    **第二种办法：js获取file的时候判断**
 
 ```javascript
-if (document.querySelector('#file').files[0].type.indexOf("image") == 0) {
+if (document.querySelector('#file').files[0].type.indexOf("image") == -1) {
        //判断上传的文件的类型type中是否含有image字符串
 }
 ```
