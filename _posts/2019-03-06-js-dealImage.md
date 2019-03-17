@@ -242,7 +242,6 @@ vue中使用 vue-cropper [github地址](http://xyxiao.cn/vue-cropper/) 	  [裁�
     function dealImage(base64, quality, callback) {
         var newImage = new Image();
         newImage.src = base64;
-        newImage.setAttribute("crossOrigin", 'Anonymous');	//url为外域时需要
         var imgWidth, imgHeight;
         newImage.onload = function () {
             imgWidth = this.width;
