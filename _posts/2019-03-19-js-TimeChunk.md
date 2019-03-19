@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "分时函数"
-subtitle:   "TimeChunk"
+subtitle:   "\"TimeChunk\""  
 date:       2019-03-19 12:30:00
 author:     "huan"
 header-img: "img/ArticleBg/post-bg-js-version.jpg"
@@ -22,6 +22,8 @@ tags:
 
 例如在短时间内往页面中大量添加 DOM 节点往往导致浏览器卡顿甚至假死。
 
+（分页可以解决一次性大量插入DOM的问题)
+
 ### 在线演示
 
 <div style='width:100%;height:780px'>
@@ -29,6 +31,7 @@ tags:
             <p>你的浏览器不支持iframe标签</p>
         </iframe>
 </div>
+
 
 
 
@@ -79,51 +82,46 @@ tags:
 </html>
 <script>
   window.onload = function() {
-    var divData = [];
+    var allData = [];
     var n = 1000;
     for (let i = 1; i < n; i++) {
-      divData.push(i); //模拟n条数据
+      allData.push(i); //模拟n条数据
     }
-    
     ////1.普通方法，一次渲染完   不过一般不需要一次渲染完那么多数据，大多数场景分页就可以了。
-    // (function (alldata) {      
     //     alldata.forEach(v => {
     //         var div = document.createElement('div');
     //         div.innerHTML = v;
     //         document.querySelector('.box').appendChild(div);
-    ////一次渲染完n条数据，在短时间内往页面中大量添加 DOM 节点往往就是浏览器的卡顿甚至假死。
     //     })
-    // })(divData);
-    
+    ////一次渲染完n条数据，在短时间内往页面中大量添加 DOM 节点往往就是浏览器的卡顿甚至假死。
     ////2.分时函数 => 时间 换取 空间
-    (function(alldata) {
-      //data 数据
-      //count 每次渲染的条数
-      //ms  每次渲染的时间间隔
-      //callback  回调函数
-      function timeChunk(data, count, ms, callback) {
-        var timer = setInterval(() => {
-          if (data.length == 0) {
-            clearInterval(timer);
-          } else {
-            runRender();
-          }
-        }, ms);
-
-        function runRender() {
-          var arr = data.splice(0, Math.min(count, data.length));
-          //splice将原数组切割，该方法会改变原始数组。
-          callback(arr);
+    //data 数据
+    //count 每次渲染的条数
+    //ms  每次渲染的时间间隔
+    //callback  回调函数
+    function timeChunk(data, count, ms, callback) {
+      var timer = setInterval(() => {
+        if (data.length == 0) {
+          clearInterval(timer);
+        } else {
+          runRender();
         }
+      }, ms);
+
+      function runRender() {
+        var arr = data.splice(0, Math.min(count, data.length));
+        //splice将原数组切割，该方法会改变原始数组。
+        callback(arr);
       }
-      timeChunk(alldata, 9, 100, function(data) {
-        data.forEach(v => {
-          var div = document.createElement("div");
-          div.innerHTML = v;
-          document.querySelector(".box").appendChild(div);
-        });
+    }
+    //执行分时
+    timeChunk(allData, 9, 100, function(data) {
+      data.forEach(v => {
+        var div = document.createElement("div");
+        div.innerHTML = v;
+        document.querySelector(".box").appendChild(div);
       });
-    })(divData);
+    });
   };
 </script>
 ```
