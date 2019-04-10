@@ -10,9 +10,12 @@
 | [tweenmax](https://www.tweenmax.com.cn/)                     | **TweenMax**.js是动画插件库GSAP的核心文件，加载后即可使用四个主要核心类TweenLite、TweenMax、TimelineLite、TimelineMax和一些其他辅助动画插件。可对一个或多个物件进行动画，或添加至时间轴中设计复杂的影片。 |                                  |
 | **CSS**                                                      |                                                              |                                  |
 | [Can I Use ?](https://caniuse.com/)                          | 为前端开发人员定制的一个查询CSS、Js在各个主流浏览器中的特性和兼容性的网站。 |                                  |
+| [CSS灵感](https://chokcoco.github.io/CSS-Inspiration/#/)     | 这里可以让你寻找到使用或者是学习 CSS 的灵感，以分类的形式，展示不同 CSS 属性或者不同的课题使用 CSS 来解决的各种方法。 |                                  |
+| [CSS奇思妙想](https://chokcoco.github.io/magicCss/html/index.html) |                                                              |                                  |
 | **面试相关**                                                 |                                                              |                                  |
 | [冷熊简历](http://cv.ftqq.com/#)                             | 运行在浏览器里边的 Markdown 编辑器，可以一键生成 PDF ，生成**简历**。 |                                  |
 | [markyun前端开发面试题](https://github.com/markyun/My-blog/blob/master/Front-end-Developer-Questions/Questions-and-Answers/README.md) |                                                              |                                  |
+| [别人的在线简历](https://data.manyuanrong.cn/resume.html)    |                                                              |                                  |
 | **壁纸**                                                     |                                                              |                                  |
 | [wallhaven](https://alpha.wallhaven.cc/random)               | 高清无水印壁纸**，**免费，有更多尺寸可选！！！               | 目前在用这个                     |
 | [500px](https://500px.me/community/discover?t=rating)        | 高清无水印壁纸**，**免费。                                   |                                  |
@@ -45,6 +48,7 @@
 | [现实君](http://tool.uixsj.cn/)                              | 比较有趣的网站，很多令人眼前一亮的功能，虽然有些不是原创     |                                  |
 | [在线随机颜色](https://colorspark.app/)                      | 再也不用纠结选色了                                           |                                  |
 | [翻墙](https://github.com/search?q=%E7%BF%BB%E5%A2%99)       | gayhub搜翻墙一大把                                           |                                  |
+| [【前端安全】JavaScript防http劫持与XSS](https://www.cnblogs.com/coco1s/p/5777260.html) |                                                              |                                  |
 | **前端收藏**                                                 |                                                              |                                  |
 | [Love2.io](https://love2.io)                                 | 一个全新的开源技术文档分享平台，致力于提供用户更优雅的阅读和写作体验。技术改变世界，用文档传播。 |                                  |
 | [前端收藏夹](http://collect.w3ctrain.com/)                   | 别人博客的收藏大全，很全面                                   |                                  |
@@ -53,6 +57,8 @@
 | [朱邦邦的JavaScript学习笔记](https://github.com/zhubangbang/zhubangbang-javascript-notes) | 别人的学习笔记                                               |                                  |
 | [前端文档汇总](https://github.com/mgbq/front-end-Doc)        | 含代码规范、开发流程、知识分享,持续更新                      |                                  |
 | [H5案例分享](https://www.h5anli.com/)                        | 各种H5效果：一镜到底、视差动画、x轴运动等。                  |                                  |
+| [Nodejs学习路线图](http://blog.fens.me/nodejs-roadmap/)      |                                                              |                                  |
+| [国内GitHub上关注度较高的开发者](https://github.com/search?l=&o=desc&p=1&q=location%3AChina&ref=advsearch&s=followers&type=Users&utf8=%E2%9C%93) |                                                              |                                  |
 
 
 
