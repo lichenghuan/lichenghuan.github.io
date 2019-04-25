@@ -43,7 +43,7 @@
 | [GitHub秘籍（中文版）](https://www.kancloud.cn/thinkphp/github-tips/37891) | GitHub使用指南。                                             |                                  |
 | [特殊符号+表情大全](http://cn.piliapp.com/facebook-symbols/) | Facebook表情**，**emoji，特殊符号等尽在其中。                |                                  |
 | [I remember](http://i-remember.fr/en/memory/51414)           | 一个关于回忆的网站，所有的光斑都是用户登录网站留下的回忆，就像浩瀚银河，通过鼠标，可以在回忆的银河中穿行，滚动鼠标滑轮，可以逐渐缩小搜索范围 |                                  |
-| [声享](https://ppt.baomitu.com/)                             | 在线制作PPT                                                  |                                  |
+| [reveal.js](https://revealjs.com/#/)                         | **一个专门用来做HTML幻灯片的框架，支持HTML和Markdown语法**   |                                  |
 | [恶意软件分析网站](https://www.virustotal.com/zh-cn/)        | VirusTotal是一个免费的病毒，蠕虫，木马和各种恶意软件分析服务。可以针对可疑文件和网址进行快速检测。 |                                  |
 | [现实君](http://tool.uixsj.cn/)                              | 比较有趣的网站，很多令人眼前一亮的功能，虽然有些不是原创     |                                  |
 | [在线随机颜色](https://colorspark.app/)                      | 再也不用纠结选色了                                           |                                  |
