@@ -12,55 +12,35 @@
             padding: 0;
         }
 
+        body {
+            padding-bottom: 50px;
+        }
+
         .title {
             text-align: center;
             font-size: 28px;
             padding: 20px;
         }
+
+        .f15 {
+            font-size: 15px;
+        }
+
+        .f18 {
+            font-size: 18px;
+        }
+
+        .redFont {
+            color: red;
+            font-weight: 600;
+        }
     </style>
 </head>
 
 <body>
-    <p>2018/12/29</p>
-    <p class='title'>web前端（广州） <span class="t1"></span></p>
-    <div id="chart" style="height:400px;"></div>
-
-    <p class='title'>web前端（深圳） <span class="t11111"></span></p>
-    <div id="chart11111" style="height:400px;"></div>
-
-    <p class='title'>JAVA <span class="t2"></span></p>
-    <div id="chart2" style="height:400px;"></div>
-
-    <p class='title'>php <span class="t3"></span></p>
-    <div id="chart3" style="height:400px;"></div>
-
-    <p class='title'>python <span class="t4"></span></p>
-    <div id="chart4" style="height:400px;"></div>
-
-    <p class='title'>node <span class="t5"></span></p>
-    <div id="chart5" style="height:400px;"></div>
-
-    <p class='title'>测试 <span class="t6"></span></p>
-    <div id="chart6" style="height:400px;"></div>
-
-    <p class='title'>golang <span class="t7"></span></p>
-    <div id="chart7" style="height:400px;"></div>
-
-    <p class='title'>算法 <span class="t8"></span></p>
-    <div id="chart8" style="height:400px;"></div>
-
-    <p class='title'>产品 <span class="t9"></span></p>
-    <div id="chart9" style="height:400px;"></div>
-
-    <p class='title'>ui <span class="t10"></span></p>
-    <div id="chart10" style="height:400px;"></div>
-
-    <p class='title'>android <span class="t11"></span></p>
-    <div id="chart11" style="height:400px;"></div>
-
-    <p class='title'>ios <span class="t12"></span></p>
-    <div id="chart12" style="height:400px;"></div>
-
+    <p class="f18">数据来源：boss直聘</p>
+    <p class="f18">更新时间：2019/07/02</p>
+    <div class="mainBox"></div>
 </body>
 
 </html>
@@ -68,46 +48,109 @@
 <script src="//cdn.bootcss.com/echarts/4.2.0-rc.2/echarts.min.js"></script>
 <script>
 
-    // 初始化图表标签
+    const Position = [{
+        name: 'web',
+        title: 'web前端（广州）'
+    },
+    {
+        name: 'web(sz)',
+        title: 'web前端（深圳）'
+    },
+    {
+        name: 'java',
+        title: 'JAVA'
+    },
+    {
+        name: 'php',
+        title: 'PHP'
 
-    chart({ jsonRoute: './jsonData/web.json', avgElement: $('.t1'), ChartId: 'chart' })
+    },
+    {
+        name: 'python',
+        title: 'Python'
 
-    chart({ jsonRoute: './jsonData/web(sz).json', avgElement: $('.t11111'), ChartId: 'chart11111' })
+    },
+    {
+        name: 'node',
+        title: 'Node'
 
-    chart({ jsonRoute: './jsonData/java.json', avgElement: $('.t2'), ChartId: 'chart2' })
+    },
+    {
+        name: 'cs',
+        title: '测试'
 
-    chart({ jsonRoute: './jsonData/php.json', avgElement: $('.t3'), ChartId: 'chart3' })
+    },
+    {
+        name: 'golang',
+        title: 'Golang'
 
-    chart({ jsonRoute: './jsonData/python.json', avgElement: $('.t4'), ChartId: 'chart4' })
+    },
+    {
+        name: 'sf',
+        title: '算法'
 
-    chart({ jsonRoute: './jsonData/node.json', avgElement: $('.t5'), ChartId: 'chart5' })
+    },
+    {
+        name: 'cp',
+        title: '产品'
 
-    chart({ jsonRoute: './jsonData/cs.json', avgElement: $('.t6'), ChartId: 'chart6' })
+    },
+    {
+        name: 'ui',
+        title: 'UI设计'
 
-    chart({ jsonRoute: './jsonData/golang.json', avgElement: $('.t7'), ChartId: 'chart7' })
+    },
+    {
+        name: 'android',
+        title: '安卓'
 
-    chart({ jsonRoute: './jsonData/sf.json', avgElement: $('.t8'), ChartId: 'chart8' })
+    },
+    {
+        name: 'ios',
+        title: 'IOS'
 
-    chart({ jsonRoute: './jsonData/cp.json', avgElement: $('.t9'), ChartId: 'chart9' })
+    },
+    {
+        name: 'ImpleEngineer',
+        title: '实施工程师'
 
-    chart({ jsonRoute: './jsonData/ui.json', avgElement: $('.t10'), ChartId: 'chart10' })
+    },
+    {
+        name: 'maintenance',
+        title: '运维工程师'
 
-    chart({ jsonRoute: './jsonData/android.json', avgElement: $('.t11'), ChartId: 'chart11' })
+    },
+    ];
 
-    chart({ jsonRoute: './jsonData/ios.json', avgElement: $('.t12'), ChartId: 'chart12' })
+    var hhtml = '';
+
+    for (let idx = 0; idx < Position.length; idx++) {
+        hhtml += `<div class='title'>${Position[idx].title}<p class='t${idx} f15'></p></div>
+                  <div id='chart${idx}' style='height:400px;'></div>`;
+    }
+
+    $('.mainBox').html(hhtml);
+
+    for (let idy = 0; idy < Position.length; idy++) {
+        // 初始化图表标签
+        chart({ jsonRoute: `./${Position[idy].name}.json`, avgElement: $(`.t${idy}`), ChartId: `chart${idy}` })
+    }
+
+
 
     function chart(params) {
-
         var myChart = echarts.init(document.getElementById(params.ChartId));
-
         $.getJSON(params.jsonRoute, function (res) {
+
             var totalSalary = 0;
+
             res.map((item) => {
                 var num = item.salary.match(/\d+/g);
                 var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
                 totalSalary += salary;
             })
-            params.avgElement.text(`(总平均招聘薪资：${(totalSalary / res.length).toFixed(2)}K)`)
+
+            params.avgElement.html(`(总平均招聘薪资:<span class='redFont f18'>${(totalSalary / res.length).toFixed(2)}K</span>, 共<span class='f18'>${res.length}</span>个职位)`);
 
             myChart.setOption(option = {
                 formatter: function (fmArr) {
@@ -116,11 +159,11 @@
                     res.filter((item) => {
                         var num = item.salary.match(/\d+/g);
                         var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
+
                         if (item.company == fmArr[0].name && salary == fmArr[0].data) {
                             fData = item;
                         }
                     })
-
                     relVal = `公司名称：${fData.company}<br/>
                               任务职位：${fData.position}<br/>
                               公司信息：${fData.companyInfo[0]}|${fData.companyInfo[1]}|${fData.companyInfo[2]}<br/>
