@@ -59,8 +59,9 @@
 | [前端文档汇总](https://github.com/mgbq/front-end-Doc)        | 含代码规范、开发流程、知识分享,持续更新                      |                                  |
 | [H5案例分享](https://www.h5anli.com/)                        | 各种H5效果：一镜到底、视差动画、x轴运动等。                  |                                  |
 | [Nodejs学习路线图](http://blog.fens.me/nodejs-roadmap/)      |                                                              |                                  |
-| [国内GitHub上关注度较高的开发者](https://github.com/search?l=&o=desc&p=1&q=location%3AChina&ref=advsearch&s=followers&type=Users&utf8=%E2%9C%93) |                                                              |                                  |
+| **[国内GitHub上关注度较高的开发者](https://github.com/search?l=&o=desc&p=1&q=location%3AChina&ref=advsearch&s=followers&type=Users&utf8=%E2%9C%93)** | 大牛们的github                                               |                                  |
 | **[Web前端导航](http://www.alloyteam.com/nav/index.html)**   |                                                              |                                  |
+| [Chrome DevTools](https://developers.google.cn/web/tools/chrome-devtools/) | 谷歌浏览器调试工具官方指南，英文版，看不懂用谷歌翻译工具     |                                  |
 
 
 
