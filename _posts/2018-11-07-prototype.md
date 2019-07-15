@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "原型与原型链"
+title:      "原型与原型链 <span style='color:red'>（未完成）</span>"
 subtitle:   " \"prototype and _proto_\""
 date:       2018-11-07 15:00:00
 author:     "huan"

@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "javascript函数柯里化"
+title:      "javascript函数柯里化 <span style='color:red'>（未完成）</span>"
 subtitle:   " \"Currying\""
 date:       2019-01-23 15:00:00
 author:     "huan"
