@@ -47,6 +47,7 @@
 | [恶意软件分析网站](https://www.virustotal.com/zh-cn/)        | VirusTotal是一个免费的病毒，蠕虫，木马和各种恶意软件分析服务。可以针对可疑文件和网址进行快速检测。 |                                  |
 | [现实君](http://tool.uixsj.cn/)                              | 比较有趣的网站，很多令人眼前一亮的功能，虽然有些不是原创     |                                  |
 | [在线随机颜色](https://colorspark.app/)                      | 再也不用纠结选色了                                           |                                  |
+| [colorkitty:从图片中提取出主要颜色，生成一个色板。](https://colorkitty.com/) | <img src='https://i.loli.net/2019/07/17/5d2df89a133ec55500.png' style='width:360px;height:200px;display: inline-block;' /> |                                  |
 | [翻墙](https://github.com/search?q=%E7%BF%BB%E5%A2%99)       | gayhub搜翻墙一大把                                           |                                  |
 | [【前端安全】JavaScript防http劫持与XSS](https://www.cnblogs.com/coco1s/p/5777260.html) |                                                              |                                  |
 | [百度云下载不限速](http://pandownload.com/index.html)        | github上面搜 “百度云不限速”  或者 “百度网盘不限速”           |                                  |
