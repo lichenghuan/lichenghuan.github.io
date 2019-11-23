@@ -29,12 +29,10 @@
 
     <input type="file" id="upload">
 
-    <div id="container"></div>
 
-    <!-- <div class="info" style='min-width:10rem;'>
-        <img src="//a.amap.com/lbs/static/img/js-markonapp.png" style='width:120px;height:120px'>
-        <div style='text-align: center'>手机扫码打开示例</div>
-    </div> -->
+
+    <div>实际距离可能出现误差</div>
+    <div id="container"></div>
 
 
     <div id="allmap"></div>
@@ -123,6 +121,12 @@
 
                 var longitude = tagj[0] + tagj[1] / 60 + tagj[2] / 60 / 60;
                 var latitude = tagw[0] + tagw[1] / 60 + tagw[2] / 60 / 60;
+
+                longitude = longitude + 0.0047;   // 手动校准
+                latitude = latitude - 0.0025;     // 手动校准
+                console.log(longitude)
+                console.log(latitude)
+
 
                 gaode(longitude, latitude);
                 tencent(longitude, latitude);
