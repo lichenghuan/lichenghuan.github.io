@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>点标记</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        #container {
+            height: 300px;
+            width: 300px;
+        }
+
+        #allmap {
+            height: 800px;
+            width: 800px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="file" id="upload">
+
+    <div id="container"></div>
+
+    <!-- <div class="info" style='min-width:10rem;'>
+        <img src="//a.amap.com/lbs/static/img/js-markonapp.png" style='width:120px;height:120px'>
+        <div style='text-align: center'>手机扫码打开示例</div>
+    </div> -->
+
+
+    <div id="allmap"></div>
+
+
+    <div class="dddd"></div>
+
+</body>
+
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="./exif.js"></script>
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=84a1f826e2e135184370cddc9e7848acluo"></script>
+<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77"></script>
+<!-- 这里的key是别人的。。   不过好像不用也可以 -->
+<script>
+
+
+    // 高德地图api
+    function gaode(longitude, latitude) {
+        var map = new AMap.Map("container", {
+            zoom: 18,
+            center: [longitude, latitude]
+        });
+        var marker = new AMap.Marker({
+            map: map,
+            position: [longitude, latitude],
+            // label: {
+            //     offset: new AMap.Pixel(20, 20),//修改label相对于maker的位置
+            //     content: "点击Marker打开高德地图"
+            // }
+        })
+        marker.on('click', function (e) {
+            marker.markOnAMAP({
+                name: '首开广场',
+                position: marker.getPosition()
+            })
+        })
+        if (AMap.UA.mobile) {
+            document.getElementsByClassName('info')[0].style.display = 'none';
+        }
+    }
+
+
+    function tencent(longitude, latitude) {
+
+        var center = new qq.maps.LatLng(latitude, longitude);
+        var map = new qq.maps.Map(document.getElementById("allmap"), {
+            center: center,
+            zoom: 16
+        });
+        //添加定时器
+        setTimeout(function () {
+            var marker = new qq.maps.Marker({
+                position: center,
+                animation: qq.maps.MarkerAnimation.DROP,
+                map: map
+            });
+            //marker.setAnimation(qq.maps.Animation.DROP);
+        }, 100);
+    }
+
+
+    $("#upload").change(function (e) {
+        var file = e.target.files || e.dataTransfer.files;
+        console.log(file[0]);
+        EXIF.getData(file[0], function () {
+            // var make = EXIF.getTag(this, "Make");
+            // var model = EXIF.getTag(this, "Model");
+            var allMetaData = EXIF.getAllTags(this);
+
+            if (JSON.stringify(allMetaData) == '{}') {
+                console.log('只能读取使用设备（如相机、手机、摄像头等）拍摄的照片进行测试，这样的照片才有数据。');
+                return;
+            }
+
+            var tagj = EXIF.getTag(this, 'GPSLongitude');
+            var tagw = EXIF.getTag(this, 'GPSLatitude');
+
+            if (tagj && tagw) {
+                console.log(tagj)
+                console.log(tagw)
+                console.log(allMetaData)
+
+                $('.dddd').html("<pre>" + JSON.stringify(allMetaData) + "</pre>")
+
+                var longitude = tagj[0] + tagj[1] / 60 + tagj[2] / 60 / 60;
+                var latitude = tagw[0] + tagw[1] / 60 + tagw[2] / 60 / 60;
+
+                gaode(longitude, latitude);
+                tencent(longitude, latitude);
+
+            } else {
+                console.log('无法获取地理位置');
+            }
+
+
+
+
+        });
+
+    })
+
+
+
+
+</script>
