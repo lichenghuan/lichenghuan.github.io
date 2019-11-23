@@ -63,6 +63,9 @@
 | **[国内GitHub上关注度较高的开发者](https://github.com/search?l=&o=desc&p=1&q=location%3AChina&ref=advsearch&s=followers&type=Users&utf8=%E2%9C%93)** | 大牛们的github                                               |                                  |
 | **[Web前端导航](http://www.alloyteam.com/nav/index.html)**   |                                                              |                                  |
 | [Chrome DevTools](https://developers.google.cn/web/tools/chrome-devtools/) | 谷歌浏览器调试工具官方指南，英文版，看不懂用谷歌翻译工具     |                                  |
+| **装逼**                                                     |                                                              |                                  |
+| [黑客桌面](http://geektyper.com/#tab1)                       |                                                              |                                  |
+| [表情包搜索](https://www.zhuangbi.info/)                     |                                                              |                                  |
 
 
 
