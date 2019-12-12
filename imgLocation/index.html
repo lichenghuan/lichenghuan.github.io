@@ -2,22 +2,19 @@
 <html>
 
 <head lang="en">
-    <title>点标记</title>
+    <title>数码照片 EXIF 信息在线查看</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <style>
-        html,
+        /* html,
         body {
-            /* height: 100%; */
-        }
+            height: 100%;
+        } */
 
         #container {
             width: 100%;
-            /* height: 100%; */
-            /* height: 666px;
-            width: 666px; */
         }
     </style>
 </head>
@@ -26,7 +23,7 @@
     <div id="app">
         <!-- <input type="file" id="upload">
         <div class="dddd"></div>
-        <div>实际距离可能出现误差</div>
+        <div></div>
         -->
 
         <el-upload class="upload-demo" drag action="#" :auto-upload="false" :on-change="handleChange">
@@ -51,7 +48,7 @@
             </el-table-column>
         </el-table>
 
-        <el-dialog title="地理位置" :visible.sync="visible" fullscreen>
+        <el-dialog title="地理位置（实际位置有误差）" :visible.sync="visible" fullscreen>
             <div id="container" :style="{ height: cheight }"></div>
         </el-dialog>
 
@@ -74,7 +71,7 @@
         el: '#app',
         data: function () {
             return {
-                cheight: '600px',
+                cheight: document.documentElement.clientHeight - 160 + 'px',
                 visible: false,
                 tableData: [],
                 longitude: 0,
@@ -83,7 +80,6 @@
         },
         methods: {
             showMap(info) {
-                this.cheight = document.documentElement.clientHeight - 100 + 'px';
                 var _that = this;
                 this.visible = true;
                 setTimeout(() => {
