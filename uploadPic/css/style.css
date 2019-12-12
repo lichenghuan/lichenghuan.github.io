@@ -12,7 +12,7 @@ body {
 
 .cont {
     box-sizing: border-box;
-    border:10px solid #009688;	
+    border:10px solid #409eff;	
     background: #fff;
     position: absolute;
     left: 50%;
@@ -32,7 +32,7 @@ body {
     width: 100%;
     min-height: 200px;
     user-select: none;
-    background: #009688;
+    background: #409eff;
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
@@ -58,20 +58,20 @@ body {
     width: 90px;
     margin-right: 10px;
     box-sizing: border-box;
-    border: 1px solid #009688;
+    border: 1px solid #409eff;
     text-align: center;
     line-height: 50px;
     height: 50px;
     cursor: pointer;
     user-select: none;
     color: #fff;
-    background: #009688;
+    background: #409eff;
     border-radius: 5px;
     margin-top: 5px;
 }
 
 .cont .formBox #form1 span:hover {
-    color: #009688;
+    color: #409eff;
     background: #fff;
 }
 
@@ -114,17 +114,17 @@ body {
 
 #imgurl input::selection {
     background: #fff;
-    color: #009688;
+    color: #409eff;
 }
 
 #imgurl input::-moz-selection {
     background: #fff;
-    color: #009688;
+    color: #409eff;
 }
 
 #imgurl input::-webkit-selection {
     background: #fff;
-    color: #009688;
+    color: #409eff;
 }
 
 #imgurl input {
@@ -143,7 +143,7 @@ body {
 
 #imgurl input:focus {
     outline: none !important;
-    border: 1px solid #009688;
+    border: 1px solid #409eff;
     box-shadow: 0 0 10px #719ECE;
 }
 
