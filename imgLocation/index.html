@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <title>数码照片 EXIF 信息在线查看</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        /* html,
+        body {
+            height: 100%;
+        } */
+
+        #container {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <input type="file" id="upload">
+        <div class="dddd"></div>
+        <div></div>
+        -->
+
+        <el-upload class="upload-demo" drag action="#" :auto-upload="false" :on-change="handleChange">
+            <i class="el-icon-upload"></i>
+            <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+            <div class="el-upload__tip" slot="tip">只能上传jpg/png文件</div>
+        </el-upload>
+
+
+        <el-table :data="tableData" border style="width: 100%" v-if="tableData.length!==0">
+            <el-table-column prop="project" label="项目">
+            </el-table-column>
+            <el-table-column prop="cont" label="内容">
+                <template slot-scope="scope">
+                    <el-tag size="medium" v-if="scope.row.project=='地理位置'" @click="showMap">
+                        点击显示地理信息
+                    </el-tag>
+                    <el-tag size="medium" v-else @click="log(scope.row)">{{ scope.row.cont }}</el-tag>
+                </template>
+            </el-table-column>
+            <el-table-column prop="explain" label="说明">
+            </el-table-column>
+        </el-table>
+
+        <el-dialog title="地理位置（实际位置有误差）" :visible.sync="visible" fullscreen>
+            <div id="container" :style="{ height: cheight }"></div>
+        </el-dialog>
+
+
+    </div>
+</body>
+
+</html>
+<script src="../js/vue.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="../element-ui/element.js"></script>
+
+<script src="./exif.js"></script>
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=84a1f826e2e135184370cddc9e7848acluo"></script>
+<!-- 这里的key是别人的。。   不过好像不用也可以 -->
+
+<script>
+
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                cheight: document.documentElement.clientHeight - 160 + 'px',
+                visible: false,
+                tableData: [],
+                longitude: 0,
+                latitude: 0
+            }
+        },
+        methods: {
+            showMap(info) {
+                var _that = this;
+                this.visible = true;
+                setTimeout(() => {
+                    var map = new AMap.Map("container", {
+                        zoom: 18,
+                        center: [_that.longitude, _that.latitude]
+                    });
+                    var marker = new AMap.Marker({
+                        map: map,
+                        position: [_that.longitude, _that.latitude],
+                    })
+                }, 10);
+            },
+            handleChange(file, fileList) {
+                var _that = this;
+                var type = file.raw.type;
+                var typeArr = ['image/jpeg', 'image/png', 'image/jpg'];
+                if (typeArr.indexOf(type) == -1) {
+                    _that.$message({
+                        showClose: true,
+                        message: '只能上传jpg/png文件',
+                        type: 'error'
+                    });
+                    return;
+                } else {
+                    _that.EXIFgetData(file.raw);
+                }
+            },
+            EXIFgetData(file) {
+                var _that = this;
+                this.$loading({
+                    lock: true,
+                    text: '获取图片信息ing',
+                    spinner: 'el-icon-loading',
+                    background: 'rgba(0, 0, 0, 0.7)'
+                });
+                EXIF.getData(file, function () {
+                    var allMetaData = EXIF.getAllTags(this);
+                    if (JSON.stringify(allMetaData) == '{}') {
+                        _that.$loading().close();
+                        _that.$message({
+                            showClose: true,
+                            message: '只能读取使用设备（如相机、手机、摄像头等）拍摄的照片进行测试',
+                            type: 'error'
+                        });
+                        return;
+                    }
+                    var tagj = EXIF.getTag(this, 'GPSLongitude');
+                    var tagw = EXIF.getTag(this, 'GPSLatitude');
+                    _that.gdMap(tagj, tagw);
+                    _that.handleOtherData(allMetaData);
+                });
+            },
+            gdMap(tagj, tagw) {
+                var _that = this;
+                if (tagj && tagw) {
+                    _that.longitude = tagj[0] + tagj[1] / 60 + tagj[2] / 60 / 60;
+                    _that.latitude = tagw[0] + tagw[1] / 60 + tagw[2] / 60 / 60;
+                    _that.longitude = _that.longitude + 0.0047;   // 手动校准
+                    _that.latitude = _that.latitude - 0.0025;     // 手动校准
+                } else {
+                    _that.$message({
+                        showClose: true,
+                        message: '无法获取地理位置',
+                        type: 'warning'
+                    });
+                }
+                _that.$loading().close();
+            },
+            handleOtherData(data) {
+                var _that = this;
+                // console.log(JSON.stringify(data))
+                this.tableData = [
+                    {
+                        project: '地理位置',
+                        cont: 1,
+                        explain: ''
+                    },
+                    {
+                        project: '手机型号',
+                        cont: data.Make + " " + data.Model,
+                        explain: ''
+                    },
+                    {
+                        project: '拍摄时间',
+                        cont: data.DateTimeOriginal || '',
+                        explain: ''
+                    },
+                    {
+                        project: '图像 宽度*高度',
+                        cont: data.ImageWidth + '*' + data.ImageHeight,
+                        explain: ''
+                    },
+                    {
+                        project: '拍摄方向',
+                        cont: data.Orientation || '',
+                        explain: ''
+                    },
+                    {
+                        project: '分辨率单位',
+                        cont: data.ResolutionUnit || '',
+                        explain: ''
+                    },
+                    {
+                        project: '感光度',
+                        cont: data.ISOSpeedRatings || '',
+                        explain: ''
+                    },
+                    {
+                        project: '曝光程序',
+                        cont: data.ExposureProgram || '',
+                        explain: ''
+                    },
+                    {
+                        project: '光圈值',
+                        cont: data.FNumber || '',
+                        explain: ''
+                    },
+                    {
+                        project: '焦距',
+                        cont: data.FocalLength || '',
+                        explain: ''
+                    },
+                    {
+                        project: '闪光灯',
+                        cont: data.Flash || '',
+                        explain: ''
+                    },
+                    {
+                        project: '光源',
+                        cont: data.Lightsource || '',
+                        explain: ''
+                    },
+                    {
+                        project: '测光方式',
+                        cont: data.MeteringMode || '',
+                        explain: ''
+                    },
+                    {
+                        project: '场景拍摄类型',
+                        cont: data.SceneCaptureType || '',
+                        explain: ''
+                    },
+                    {
+                        project: '白平衡（1 == 自动，2 == 手动）',
+                        cont: data.WhiteBalance || '',
+                        explain: ''
+                    },
+                ]
+
+
+                _that.$loading().close();
+
+            }
+        }
+    })
+
+
+
+</script>
