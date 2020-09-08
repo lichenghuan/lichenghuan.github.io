@@ -7,8 +7,8 @@
     <title>OCR 图片识别文字</title>
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <style>
-        .mb6 {
-            margin-bottom: 6px;
+        .mt6 {
+            margin-top: 6px;
         }
     </style>
 </head>
@@ -21,7 +21,7 @@
             <div class="el-upload__tip" slot="tip">只能上传jpg/png文件</div>
         </el-upload> -->
 
-        <el-upload :auto-upload="false" action="#" list-type="picture-card" :on-change="handleChange"
+        <el-upload class="mt6" :auto-upload="false" action="#" list-type="picture-card" :on-change="handleChange"
             :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
             <i class="el-icon-plus"></i>
         </el-upload>
@@ -30,7 +30,7 @@
         </el-dialog>
 
         <section v-if="ocrTextArr.length !== 0">
-            <div class="mb6" v-for="oText,i in ocrTextArr" :key="i">
+            <div class="mt6" v-for="oText,i in ocrTextArr" :key="i">
                 <el-input type="textarea" :rows="6" v-model="oText.text">
                 </el-input>
             </div>
@@ -113,7 +113,7 @@
                     timeout: 26666,
                     success: function (ocrParsedResult) {
                         loading.close();
-                        
+
                         //得到识别结果
                         // console.log(ocrParsedResult)
                         //Get the parsed results, exit code and error message and details
