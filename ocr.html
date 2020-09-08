@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR 图片识别文字</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        .mb6 {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <el-upload class="upload-demo" drag action="#" :auto-upload="false" :on-change="handleChange">
+            <i class="el-icon-upload"></i>
+            <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+            <div class="el-upload__tip" slot="tip">只能上传jpg/png文件</div>
+        </el-upload> -->
+
+        <el-upload :auto-upload="false" action="#" list-type="picture-card" :on-change="handleChange"
+            :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
+            <i class="el-icon-plus"></i>
+        </el-upload>
+        <el-dialog :visible.sync="dialogVisible">
+            <img width="100%" :src="dialogImageUrl" alt="">
+        </el-dialog>
+
+        <section v-if="ocrTextArr.length !== 0">
+            <div class="mb6" v-for="oText,i in ocrTextArr" :key="i">
+                <el-input type="textarea" :rows="6" v-model="oText.text">
+                </el-input>
+            </div>
+        </section>
+
+
+    </div>
+</body>
+
+</html>
+<script src="./js/jquery.js"></script>
+<script src="./js/vue.js"></script>
+<script src="./element-ui/element.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                dialogVisible: false,
+                dialogImageUrl: '',
+                ocrTextArr: []
+            }
+        },
+        methods: {
+            handleRemove(file, fileList) {
+                console.log(file, fileList);
+            },
+            handlePictureCardPreview(file) {
+                this.dialogImageUrl = file.url;
+                this.dialogVisible = true;
+            },
+            handleChange(file, fileList) {
+                var _that = this;
+                var type = file.raw.type;
+                if (type.indexOf('image') == -1) {
+                    _that.$message({
+                        showClose: true,
+                        message: '只能上传图片文件',
+                        type: 'error'
+                    });
+                    return;
+                } else {
+                    _that.dealData(file.raw);
+                }
+            },
+            dealData(file) {
+                var _that = this;
+                var reader = new FileReader();
+                reader.readAsDataURL(file);         //调用自带方法进行转换  
+                reader.onload = function (e) {
+                    var img = this.result;
+                    // var imgNum = img.split(";base64,");
+                    // var imgBase = imgNum[1];
+                    var formData = new FormData();
+                    formData.append("base64Image", this.result);
+                    formData.append("language", "chs");
+                    formData.append("apikey", "82ad99e83388957");//2...@qq.com
+                    _that.postData(formData);
+                }
+            },
+            postData(fData) {
+                var _that = this;
+
+                var loading = this.$loading({
+                    lock: true,
+                    text: '识别中',
+                    spinner: 'el-icon-loading',
+                    background: 'rgba(0, 0, 0, 0.7)'
+                });
+
+                $.ajax({
+                    url: 'https://api.ocr.space/parse/image',
+                    data: fData,
+                    dataType: 'json',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    timeout: 26666,
+                    success: function (ocrParsedResult) {
+                        loading.close();
+                        
+                        //得到识别结果
+                        // console.log(ocrParsedResult)
+                        //Get the parsed results, exit code and error message and details
+                        var parsedResults = ocrParsedResult["ParsedResults"];
+                        var errorMessage = ocrParsedResult["ErrorMessage"];
+                        if (parsedResults != null) {
+                            $.each(parsedResults, function (index, value) {
+                                var exitCode = value["FileParseExitCode"];
+                                var parsedText = value["ParsedText"];
+                                var errorMessage = value["ParsedTextFileName"];
+                                var textOverlay = value["TextOverlay"];
+                                var pageText = '';
+                                switch (+exitCode) {
+                                    case 1:
+                                        pageText = parsedText;
+                                        break;
+                                    case 0:
+                                    case -10:
+                                    case -20:
+                                    case -30:
+                                    case -99:
+                                    default:
+                                        pageText += "Error: " + errorMessage;
+                                        break;
+                                }
+                                if (pageText) {
+                                    _that.ocrTextArr.push({ 'text': pageText })
+                                    console.log(pageText)
+                                } else {
+                                    _that.$message({
+                                        showClose: true,
+                                        message: '未识别出结果',
+                                        type: 'error'
+                                    });
+                                }
+                            });
+                        }
+                        else {
+                            _that.$message({
+                                showClose: true,
+                                message: '未识别成功',
+                                type: 'error'
+                            });
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        //console.log('Quzi ', 'complete', XMLHttpRequest);
+                        //console.log('Quzi ', 'complete', textStatus);
+                        loading.close();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //未得到识别结果
+                        loading.close();
+
+                        console.log('Quzi ', XMLHttpRequest);
+                        console.log('Quzi ', textStatus);
+                        console.log('Quzi ', errorThrown);
+
+                        switch (textStatus) {
+                            case 'timeout':
+                                _that.$message({
+                                    showClose: true,
+                                    message: '识别请求超时,请检测网络',
+                                    type: 'error'
+                                });
+                                break;
+                            case 'error':
+                                _that.$message({
+                                    showClose: true,
+                                    message: '当前网络异常,请检测网络连接情况',
+                                    type: 'error'
+                                });
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
+
+            }
+        }
+    })
+
+
+</script>
