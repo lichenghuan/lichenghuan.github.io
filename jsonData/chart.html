@@ -3,253 +3,105 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>boss直聘招聘信息</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            padding-bottom: 50px;
-        }
-
-        .title {
-            text-align: center;
-            font-size: 28px;
-            padding: 20px;
-        }
-
-        .f15 {
-            font-size: 15px;
-        }
-
-        .f18 {
-            font-size: 18px;
-        }
-
-        .redFont {
-            color: red;
-            font-weight: 600;
-        }
-    </style>
+    <title>recorderplay</title>
 </head>
 
 <body>
-    <p class="f18">数据来源：boss直聘</p>
-    <p class="f18">更新时间：2019/07/02</p>
-    <div class="mainBox"></div>
+    <div>
+        getUserMedia需要https，使用localhost或127.0.0.1时，可用http。
+    </div>
+    <button id="start">开始录音</button>
+    <button id="end">结束录音</button>
+
+    <div id="mystatus"></div>
+
 </body>
+<script>
+   
+   window.onload= function () {
+
+    var context = null,
+        inputData = [],
+        size = 0,
+        audioInput = null,
+        recorder = null,
+        dataArray;
+
+    var mystatus = document.getElementById('mystatus');
+
+    document.getElementById('start').addEventListener('click', function () {
+        context = new (window.AudioContext || window.webkitAudioContext)();
+        // 录音节点
+        recorder = context.createScriptProcessor(4096, 1, 1);
+        recorder.onaudioprocess = function (e) {
+            // getChannelData返回Float32Array类型的pcm数据
+            var data = e.inputBuffer.getChannelData(0);
+            //创建变量并迭代来获取最大的音量值
+            var maxVal = 0;
+            for (var i = 0; i < data.length; i++) {
+                if (maxVal < data[i]) {
+                    maxVal = data[i];
+                }
+            }
+            console.log(Math.round(maxVal * 100))   //显示音量值
+            mystatus.innerHTML = "您的音量值：" + Math.round(maxVal * 100);
+            // inputData.push(new Float32Array(data));
+            // size += data.length;
+        }
+        navigator.mediaDevices.getUserMedia({
+            audio: true
+        }).then((stream) => {
+            audioInput = context.createMediaStreamSource(stream);
+
+            console.log(audioInput)
+
+        }).catch((err) => {
+            console.log('error');
+        }).then(function () {
+            audioInput.connect(recorder);
+            recorder.connect(context.destination);
+        });
+    });
+    document.getElementById('end').addEventListener('click', function () {
+        recorder.disconnect();
+        if (0 !== size) {
+            // 组合数据
+            var data = combine(inputData, size);
+            console.log(data.buffer);
+        }
+    });
+
+    function combine(buffer, size) {
+        var data = new Float32Array(size);
+        var offset = 0; // 偏移量计算
+        // 将二维数据，转成一维数据
+        for (var i = 0; i < buffer.length; i++) {
+            data.set(buffer[i], offset);
+            offset += buffer[i].length;
+        }
+
+        return data;
+    }
+
+       
+   }
+
+    /*
+
+    tips: http打开的网页无法获取录音，需要https；本地的话 使用localhost打开也可以录音
+
+    参考： https://www.cnblogs.com/xiangyuecn/archive/2004/01/13/12207875.html
+
+    https://zhuanlan.zhihu.com/p/26536898
+
+    https://www.cnblogs.com/xym4869/p/13857506.html
+
+    https://segmentfault.com/a/1190000017090438
+
+    https://gitee.com/2fps/recorder
+    
+    */
+</script>
 
 </html>
-<script src="//libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/echarts/4.2.0-rc.2/echarts.min.js"></script>
-<script>
-
-    const Position = [{
-        name: 'web',
-        title: 'web前端'
-    },
-    {
-        name: 'java',
-        title: 'JAVA'
-    },
-    {
-        name: 'php',
-        title: 'PHP'
-
-    },
-    {
-        name: 'python',
-        title: 'Python'
-
-    },
-    {
-        name: 'node',
-        title: 'Node'
-
-    },
-    {
-        name: 'cs',
-        title: '测试'
-
-    },
-    {
-        name: 'golang',
-        title: 'Golang'
-
-    },
-    {
-        name: 'sf',
-        title: '算法'
-
-    },
-    {
-        name: 'cp',
-        title: '产品'
-
-    },
-    {
-        name: 'ui',
-        title: 'UI设计'
-
-    },
-    {
-        name: 'android',
-        title: '安卓'
-
-    },
-    {
-        name: 'ios',
-        title: 'IOS'
-
-    },
-    {
-        name: 'ImpleEngineer',
-        title: '实施工程师'
-
-    },
-    {
-        name: 'maintenance',
-        title: '运维工程师'
-
-    },
-    ];
-
-    var hhtml = '';
-
-    for (let idx = 0; idx < Position.length; idx++) {
-        hhtml += `<div class='title'>${Position[idx].title}<p class='t${idx} f15'></p></div>
-                  <div id='chart${idx}' style='height:400px;'></div>`;
-    }
-
-    $('.mainBox').html(hhtml);
-
-    for (let idy = 0; idy < Position.length; idy++) {
-        // 初始化图表标签
-        chart({ jsonRoute: `./${Position[idy].name}.json`, avgElement: $(`.t${idy}`), ChartId: `chart${idy}` })
-    }
-
-
-
-    function chart(params) {
-        var myChart = echarts.init(document.getElementById(params.ChartId));
-        $.getJSON(params.jsonRoute, function (res) {
-
-            var totalSalary = 0;
-
-            res.map((item) => {
-                var num = item.salary.match(/\d+/g);
-                var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
-                totalSalary += salary;
-            })
-
-            params.avgElement.html(`(总平均招聘薪资:<span class='redFont f18'>${(totalSalary / res.length).toFixed(2)}K</span>, 共<span class='f18'>${res.length}</span>个职位)`);
-
-            myChart.setOption(option = {
-                formatter: function (fmArr) {
-                    var fData = {};
-                    var relVal = "";
-                    res.filter((item) => {
-                        var num = item.salary.match(/\d+/g);
-                        var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
-
-                        if (item.company == fmArr[0].name && salary == fmArr[0].data) {
-                            fData = item;
-                        }
-                    })
-                    relVal = `公司名称：${fData.company}<br/>
-                              任务职位：${fData.position}<br/>
-                              公司信息：${fData.companyInfo[0]}|${fData.companyInfo[1]}|${fData.companyInfo[2]}<br/>
-                              工作年限：${fData.primaryInfo[1]}<br/>
-                              学历要求：${fData.primaryInfo[2]}<br/>
-                              薪资区间：${fData.salary}<br/>
-                              办公地点：${fData.primaryInfo[0]}<br/>`
-
-                    return relVal;
-                },
-                tooltip: {
-                    trigger: 'axis'
-                },
-                xAxis: {
-                    data: res.map((item) => item.company)
-                },
-                yAxis: {
-                    splitLine: {
-                        show: false
-                    }
-                },
-                toolbox: {
-                    left: 'center',
-                    feature: {
-                        dataZoom: {
-                            yAxisIndex: 'none'
-                        },
-                        restore: {},
-                        saveAsImage: {}
-                    }
-                },
-                dataZoom: [{
-                    startValue: '2014-06-01'
-                }, {
-                    type: 'inside'
-                }],
-                visualMap: {
-                    top: 10,
-                    right: 10,
-                    pieces: [{
-                        gt: 0,
-                        lte: 5,
-                        color: '#096'
-                    }, {
-                        gt: 5,
-                        lte: 10,
-                        color: '#ffde33'
-                    }, {
-                        gt: 10,
-                        lte: 30,
-                        color: '#ff9933'
-                    }, {
-                        gt: 30,
-                        lte: 40,
-                        color: '#cc0033'
-                    },
-                    {
-                        gt: 40,
-                        lte: 80,
-                        color: '#7e0023'
-                    }],
-                    outOfRange: {
-                        color: '#999'
-                    }
-                },
-                series: {
-                    name: '平均招聘薪资',
-                    type: 'line',
-                    data: res.map((item) => {
-                        var num = item.salary.match(/\d+/g);
-                        var salary = (parseFloat(num[0]) + parseFloat(num[1])) / 2;
-                        return salary;
-                    }),
-                    markLine: {
-                        silent: true,
-                        data: [{
-                            yAxis: 5
-                        }, {
-                            yAxis: 10
-                        }, {
-                            yAxis: 15
-                        }]
-                    }
-                }
-            });
-
-        })
-    }
-
-
-
-
-</script>
