@@ -4,86 +4,149 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>recorderplay</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" /> 
+    <title>voiceBeat</title>
+
+    <style>
+        *{
+            margin: 0;
+            bottom: 0;
+        }
+        html,body{
+            /* background: #000;
+            color: #fff; */
+        }
+
+        #voiceBeat{
+            background: #000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 666;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        #voiceBeat p{
+            width: 88px;
+            border-radius: 3px;
+            /* transition: all 0.5s; */
+        }
+    </style>
 </head>
 
 <body>
-    <div>
-        getUserMedia需要https，使用localhost或127.0.0.1时，可用http。
-    </div>
-    <button id="start">开始录音</button>
-    <button id="end">结束录音</button>
+    <section id="app">   
+        <button @click="start">开始</button>
+        <button @click="end">结束录音</button>
+        <div>您的音量值：{{val}}</div>
 
-    <div id="mystatus"></div>
+        <div id="voiceBeat" v-show='flag == 1' @click='flag = 0'>
 
+            <p class="vbItem" v-for="item,i in colorArr" :index='i' :style="{height:screenHeight/colorArr.length + 'px',backgroundColor: val>=i+1 || gradSub==i?item.newColor:item.oldColor}">
+
+            </p>
+
+
+        </div>
+    </section>
 </body>
+
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
 <script>
-   
    window.onload= function () {
+    new Vue({
+      el: '#app',
+      data: function() {
+        return { 
+            flag: 0,
+            context:null,
+            audioInput:null,
+            recorder:null,
+            screenHeight: 0,
+            text:'开始',
+            val: 0,
+            colorArr: [],
+            gradSub: 0,
+            timer: null,
+         }
+      },
+      methods:{
+          start(){
+              var that = this;
+                that.context = new (window.AudioContext || window.webkitAudioContext)();
+                that.recorder = that.context.createScriptProcessor(4096, 1, 1);         // 录音节点
+                that.recorder.onaudioprocess = function (e) {
+                    var data = e.inputBuffer.getChannelData(0);                         // getChannelData返回Float32Array类型的pcm数据
+                    var maxVal = 0;                                                     //创建变量并迭代来获取最大的音量值
+                    for (var i = 0; i < data.length; i++) {
+                        if (maxVal < data[i]) {
+                            maxVal = data[i];
+                        }
+                    }
+                    that.val = Math.round(maxVal * 100);
+                    that.val = that.val/5;
 
-    var context = null,
-        inputData = [],
-        size = 0,
-        audioInput = null,
-        recorder = null,
-        dataArray;
 
-    var mystatus = document.getElementById('mystatus');
+                    if (that.val >= that.colorArr.length-3) {
+                        that.gradSub = that.colorArr.length;
 
-    document.getElementById('start').addEventListener('click', function () {
-        context = new (window.AudioContext || window.webkitAudioContext)();
-        // 录音节点
-        recorder = context.createScriptProcessor(4096, 1, 1);
-        recorder.onaudioprocess = function (e) {
-            // getChannelData返回Float32Array类型的pcm数据
-            var data = e.inputBuffer.getChannelData(0);
-            //创建变量并迭代来获取最大的音量值
-            var maxVal = 0;
-            for (var i = 0; i < data.length; i++) {
-                if (maxVal < data[i]) {
-                    maxVal = data[i];
+
+                        if (that.timer) {
+                            return;
+                        }
+
+                        that.timer = setInterval(() => {
+                            that.gradSub = parseInt(that.gradSub) -1;
+                            if (that.gradSub <= 3) {
+                                console.log(5)
+                                clearInterval(that.timer)
+                                that.timer = null;
+                                that.gradSub = 0;
+                            }
+                        }, 50);
+                        
+                    }
+
+                    // console.log(that.val)
                 }
-            }
-            console.log(Math.round(maxVal * 100))   //显示音量值
-            mystatus.innerHTML = "您的音量值：" + Math.round(maxVal * 100);
-            // inputData.push(new Float32Array(data));
-            // size += data.length;
-        }
-        navigator.mediaDevices.getUserMedia({
-            audio: true
-        }).then((stream) => {
-            audioInput = context.createMediaStreamSource(stream);
+                navigator.mediaDevices.getUserMedia({
+                    audio: true
+                }).then((stream) => {
+                    that.audioInput = that.context.createMediaStreamSource(stream);
+                }).catch((err) => {
+                    console.log('error');
+                }).then(function () {
+                    that.audioInput.connect(that.recorder);
+                    that.recorder.connect(that.context.destination);
+                });
 
-            console.log(audioInput)
+                that.flag = 1;
 
-        }).catch((err) => {
-            console.log('error');
-        }).then(function () {
-            audioInput.connect(recorder);
-            recorder.connect(context.destination);
-        });
-    });
-    document.getElementById('end').addEventListener('click', function () {
-        recorder.disconnect();
-        if (0 !== size) {
-            // 组合数据
-            var data = combine(inputData, size);
-            console.log(data.buffer);
-        }
-    });
+          },
+          end(){
+            this.recorder.disconnect();
+          }
+      },
+      mounted(){
+          this.screenHeight = window.screen.height;
 
-    function combine(buffer, size) {
-        var data = new Float32Array(size);
-        var offset = 0; // 偏移量计算
-        // 将二维数据，转成一维数据
-        for (var i = 0; i < buffer.length; i++) {
-            data.set(buffer[i], offset);
-            offset += buffer[i].length;
-        }
+          var newColorArr = ['#f09f6f','#e6c7b3','#dbd2e3','#d1eafa','#cedefb','#bff0fc','#b6f6fb','#c0f7fe','#a2ecff','#a4e5fe','#51d1fc','#0ba6f9','#03a6f5','#079dfb','#1797e8']
 
-        return data;
-    }
+          newColorArr.forEach((item,i) => {
+            this.colorArr[i] =  {
+                    oldColor: "#000",
+                    newColor: item
+                };
+         });
 
+          console.log(this.colorArr)
+
+
+      },
+    })
        
    }
 
